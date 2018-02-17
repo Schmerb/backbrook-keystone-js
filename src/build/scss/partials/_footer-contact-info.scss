@@ -22,9 +22,11 @@
 //
 // // // // // //
 .admin-info {
-    // border: 1px solid blue;
     @include mediaMin($tablet) {
         font-size: calc(1em + 0.3vw);
+    }
+    @include mediaMax($desktop - 1) {
+        border-top: 3px solid $brickred;
     }
     @include mediaMin($desktop) {
         @include flexbox;

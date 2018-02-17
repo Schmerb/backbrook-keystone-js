@@ -19,8 +19,18 @@
         font-size: 1.4em;
         margin-top: 30px;
         @include mediaMin($tablet) {
-            width: 100%;
             flex-direction: row;
+            font-size: 1.1em;
+            width: 100%;
+        }
+        @include mediaMin(800px) {
+            font-size: 1.3em;
+        }
+        @include mediaMin($desktop) {
+            font-size: 1.7em;
+        }
+        .sub-menu-list {
+            font-size: 0.9em;
         }
     }
     // 

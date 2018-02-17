@@ -25,7 +25,7 @@ html, body {
     // custom scroll bars
     // - - - - - - - - - - -
     &::-webkit-scrollbar { // background of bar itself
-        background-color: white;
+        background-color: #eee;
         width: 11px;
     }
     &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
@@ -36,14 +36,14 @@ html, body {
         background-color: transparent;
     }
     // IE custom scrollbar support
-    scrollbar-base-color: white;
+    scrollbar-base-color: #eee;
     scrollbar-face-color: $brickred;
-    scrollbar-3dlight-color: white;
-    scrollbar-highlight-color: white;
-    scrollbar-track-color: white;
+    scrollbar-3dlight-color: #eee;
+    scrollbar-highlight-color: #eee;
+    scrollbar-track-color: #eee;
     scrollbar-arrow-color: $brickred;
-    scrollbar-shadow-color: white;
-    scrollbar-dark-shadow-color: white;
+    scrollbar-shadow-color: #eee;
+    scrollbar-dark-shadow-color: #eee;
 }
 
 

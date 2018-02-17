@@ -6,26 +6,19 @@
 
 .f-icon-wrap {
     text-align: center;
+    overflow: hidden;
+    // border-bottom: 3px solid $brickred;
     .inner-wrap {
         position: relative;
         display: inline-block;
         width: calc(200px + 5vw);
         height: calc(200px + 5vw);
-        // border: 1px solid white;
     }
-    // .icon-trowel-solid {
-    //     position: absolute;
-    //     top: 10px;
-    //     left: 40%;
-    //     width: 40%;
-    //     height: 40%;
-    //     fill: black;
-    // }
     .icon-five-bricks {
         @extend %center;
         bottom: -50px;
         width: 150%;
         height: 150%;
-        fill: #a91018;
+        fill: $brickred;
     }
 }
