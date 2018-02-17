@@ -51,6 +51,7 @@
         @include custom-scrollbars(grey);
         overflow-y: scroll;
         width: 100%;
+        max-height: 650px;
         padding-bottom: 10px;
         padding-left: 30px;
         padding-right: 30px;
