@@ -7,30 +7,60 @@
 .why-we-excell {
     position: relative;
     background-color: $brickred;
-    color: white;
+    color: $offwhite;
     margin-top: 140px;
-    margin-bottom: 40px;
-    min-height: 400px;
+    margin-bottom: 100px;
+    height: 800px;
     text-align: center;
-    h2 {
+    @include mediaMin($tablet) {
+        height: 400px;    
+    }
+    > h2 {
+        color: white;
+        font-size: 36px;
         padding: 20px 0;
     }
     ul {
         width: 100%;
+        margin-top: 40px;
         overflow: auto;
-        border: 1px solid black;
+        @include mediaMin($tablet) {
+            margin-top: 0;
+        }
     }
     li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
-        min-height: 150px;
-        padding: 20px 0 30px;
-        border: 1px solid blue;
+        height: 200px;
+        padding: 5px;
         &:hover {
             .excell-icon {
                 background-color: grey;
+            }
+        }
+        > div {
+            position: relative;
+            width: 95%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 30px 0;
+            h3 {
+                @extend %center;
+                width: 80%;
+                max-width: 280px;
+                @include mediaMin($tablet) {
+                    width: 100%;
+                    font-size: 1.4em;
+                }
+            }
+            p {
+                @extend %center;
+                color: lightgrey;
+                width: 90%;
+                max-width: 400px;
+                margin-top: 60px;
+                @include mediaMin($tablet) {
+                    top: 60px; // keeps tops of paragraphs aligned, setting bottom causes offset
+                }
             }
         }
     }

@@ -7,14 +7,16 @@
 .inquiries {
     min-height: 600px;
     padding: 40px 0;
+    margin-bottom: 40px;
     text-align: center;
-    // border: 1px solid blue;
+    @include mediaMin($tablet) {
+        margin-bottom: 100px;
+    }
     .inner-wrap {
         position: relative;
         width: 80%;
         min-height: 500px; 
         margin: 0 auto;
-        // border: 1px solid red;
     }
     // // // // // // // //
     //
@@ -27,7 +29,6 @@
         min-width: 200px;
         max-width: 340px;
         margin-bottom: 40px;
-        // border: 1px solid black;
         @include mediaMin(800px) {
             @include middleL;
             min-width: auto;
@@ -44,7 +45,6 @@
     // / /// // // // // //
     .call-to-action {
         position: relative;
-        // border: 1px solid black;
         @include mediaMin(800px) {
             @include middleR;
             height: 200px;
@@ -75,7 +75,6 @@
         pointer-events: none;
     }
     a {
-
         background-color: transparent;
         position: relative;
         display: block;
@@ -86,10 +85,7 @@
         margin: 35px auto 0;
         text-align: left;
         border: 2px solid rgba(grey, 0.1);
-        // border-radius: 3px;
         &:hover {
-            // background-color: grey;
-            // color: white;
             border-color: $brickred;
             .icon-email-icon {
                 fill: $brickred;
