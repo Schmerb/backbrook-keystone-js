@@ -1,0 +1,53 @@
+// // // // // // // // // //
+//
+//      Trust & Respect
+//
+// // // // // // // // // //
+
+.trust-respect-page {
+    min-height: 100vh;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    h2 {
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    ul {
+        li {
+            display: block;
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid rgba($brickred, 0.3);
+            }
+        }
+    }
+    .testimonial {
+        font-family: "Roboto";
+        
+        blockquote {
+            margin: 0;
+            padding: 10px;
+            > div {
+                // Wrapping quotations
+                &::after {
+                    content: "\"";
+                }
+                &::before {
+                    content: "\"";
+                }
+            }
+        }
+        cite {
+            display: block;
+            margin-top: 10px;
+            span {
+                display: block;
+            }
+        }
+    }   
+}

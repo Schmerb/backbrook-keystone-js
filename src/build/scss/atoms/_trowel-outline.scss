@@ -1,0 +1,38 @@
+// // // // // // // // // //
+//
+//      Trowel Outline
+//
+// // // // // // // // // //
+
+.icon-trowel-outline {
+    @extend %center;
+    @extend %default-transition;
+    @include transform(rotate(-30deg));
+    bottom: 40px;
+    width: 45px;
+    height: 45px;
+    fill: white;
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+    @include mediaMax($tablet) {
+        left: 45%;
+    }
+    &:hover {
+        @include animation(bounce 3s infinite);
+        fill: silver;
+    }
+    path {
+        outline: none;
+    }
+}
+
+.trowel-path {
+    outline: none;
+}
+
+@include keyframes(bounce) {
+    0% {   @include transform(rotate(-30deg) translate(0, 0)); }
+    50% {  @include transform(rotate(-34deg) translate(-10px, 8px)); }
+    100% { @include transform(rotate(-30deg) translate(0, 0)); }
+}

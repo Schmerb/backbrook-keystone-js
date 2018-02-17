@@ -1,0 +1,24 @@
+{% block content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title|default("backbrook") }}</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- Normalize.css, a cross-browser reset file -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet"> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Fira+Sans:300|Abel|Cutive+Mono|Roboto" rel="stylesheet">
+    <!-- slick-js styles -->
+    <link rel="stylesheet" type="text/css" href="/css/slick-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/slick.min.css"/>
+    <link href="/css/screen.min.css" rel="stylesheet">
+    {% if user and user.canAccessKeystone %}
+        <link href="/keystone/styles/content/editor.min.css" rel="stylesheet">
+    {% endif %}
+    <!--[if lt IE 9]>
+        <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+        <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block css %}{% endblock %}
+    {% block head %}{% endblock %}
+{% endblock %}

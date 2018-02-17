@@ -1,0 +1,99 @@
+// // // // // // // // // //
+//
+//   Search Results
+//
+// // // // // // // // // //
+
+.form-results-container {
+    @include transition(0.6s);
+    position: relative;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    // box-shadow: 0 5px 26px -11px rgba(0,0,0,0.3);
+    &.open {
+        height: 300px;
+        padding: 20px 0;
+        opacity: 1;
+        @include mediaMin(600px) {
+            height: 200px;
+        }
+    }
+}
+
+// - - - - - - - - - - -
+// Category Options
+// - - - - - - - - - - -
+.category-options {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: auto;
+    opacity: 1;
+    @include mediaMax(599px) {
+        text-align: center;
+    }
+    @include mediaMin(600px) {
+        width: 75%;
+    }
+    &.fadeOut {
+        height: 0;
+        opacity: 0;
+    }
+    li {
+        flex-basis: 100%;
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        @include mediaMin(600px) {
+            flex-basis: 50%;
+            padding-left: 30px;
+        }
+        a {
+            @extend %default-transition;
+            color: rgba($brickred, 0.7);
+            &:hover {
+                color:rgba($brickred, 0.9);
+            }
+        }
+    }
+}
+
+// - - - - - - - - - - -
+// Search Results
+// - - - - - - - - - - -
+.search-results {
+    @include transition(0.7s);
+    background-color: rgba($brickred, 0.9);
+    color: white;
+    width: 100%;
+    height: 0;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    &.open {
+        height: auto;
+        min-height: 40px;
+        max-height: 999px;
+        padding: 10px;
+        padding-left: 20px;
+        opacity: 1;
+    }
+    .no-match-msg {
+        text-align: center;
+    }
+    li {
+        display: block;
+        font-weight: bold;
+        font-size: 22px;
+        margin: 10px 0;
+        a {
+            &:hover {
+                @include transition(0.1s);
+                color: lightgrey;
+            }
+        }
+    }
+}

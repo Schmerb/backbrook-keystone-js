@@ -1,0 +1,122 @@
+// // // // // // // // // //
+//
+//      Footer Contact Info
+//
+// // // // // // // // // //
+
+.contact-info {
+    line-height: 1.5em;
+    // border: 1px solid black;
+    @include mediaMin($desktop) {
+        @include flexbox;
+        height: 300px;
+    }
+    @include mediaMin(1400px) {
+        font-size: 28px;
+    }
+}
+
+// // // // // //
+//
+// ADMIN INFO
+//
+// // // // // //
+.admin-info {
+    // border: 1px solid blue;
+    @include mediaMin($tablet) {
+        font-size: calc(1em + 0.3vw);
+    }
+    @include mediaMin($desktop) {
+        @include flexbox;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(1em + 0.1vw);
+        width: 70%;
+        border-bottom: 3px solid $brickred;
+    }
+    @include mediaMin(1400px) {
+        font-size: 22px;
+    }
+    ul {
+        @extend %flexbox;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 500px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        @include mediaMin($tablet) {
+            flex-direction: row;
+            height: auto;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+        @include mediaMin($desktop) {
+            width: 100%;
+        }
+        li {
+            @extend %flexbox;
+            line-height: 2em;
+            flex-direction: column;
+        }
+    }
+}
+
+.at-sym {
+    color: $brickred;
+}
+
+
+// // // // // //
+//
+// OFFICE INFO
+//
+// // // // // //
+.office-info {
+    background-color: $brickred;
+    color: white;
+    @extend %flexbox;
+    justify-content: space-around;
+    height: calc(140px + 10vw);
+    @include mediaMin($tablet) {
+        font-size: calc(0.5em + 1vw);
+    }
+    @include mediaMin($desktop) {
+        height: 300px;
+        width: 30%;
+    }
+    @include mediaMin(1400px) {
+        font-size: 24px;
+    }
+    svg {
+        fill: white;
+    }
+    h3 {
+        color: white;
+    }
+    > div {
+        position: relative;
+        height: inherit;
+    }
+    .icon-location-marker {
+        @extend %abs-middle;
+        width: calc(55px + 4vw);
+        height: calc(55px + 4vw);
+        @include mediaMin($desktop) {
+            width: calc(5px + 5vw);
+            height: calc(5px + 5vw);
+        }
+    }
+    .office-info-wrap {
+        @extend %flexbox;
+        flex-direction: column;
+        justify-content: center;
+        height: inherit;
+        address {
+            .icon-phone, .icon-fax {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+

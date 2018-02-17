@@ -1,0 +1,100 @@
+// // // // // // // // // //
+//
+//      Base
+//
+// // // // // // // // // //
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    // - - - - - - - - - - -
+    // custom scroll bars
+    // - - - - - - - - - - -
+    &::-webkit-scrollbar { // background of bar itself
+        background-color: white;
+        width: 11px;
+    }
+    &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
+        background-color: $brickred;
+        border-radius: 20px;
+    }
+    &::-webkit-scrollbar-corner { // addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet
+        background-color: transparent;
+    }
+    // IE custom scrollbar support
+    scrollbar-base-color: white;
+    scrollbar-face-color: $brickred;
+    scrollbar-3dlight-color: white;
+    scrollbar-highlight-color: white;
+    scrollbar-track-color: white;
+    scrollbar-arrow-color: $brickred;
+    scrollbar-shadow-color: white;
+    scrollbar-dark-shadow-color: white;
+}
+
+
+
+body {  
+    @include transitions(font-size 0.3s ease-in-out); // avoids text flickering due to dynamic sizing
+    font-family: 'Cutive Mono', monospace;
+    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
+    position: relative;
+    background: $offwhite;
+    background-color: white;
+    min-height: 100vh;
+    min-width: 320px;
+    margin: 0;
+    overflow: hidden;
+
+    // Sticky Footer
+    padding-bottom: calc(1950px + 5vw);;
+    @include mediaMin($tablet) {
+        padding-bottom: 1300px;
+    }
+    @include mediaMin($desktop) {
+        padding-bottom: 1050px;
+    }
+    @include mediaMin(1400px) {
+        padding-bottom: 1100px;
+    }
+
+    // 404 Error page @overrides
+    &._404 {
+        padding: 0;
+        min-height: 0;
+    }
+}
+
+// svg symbol defs at top of body
+#symbol-defs {
+    display: none;
+}
+
+// * * * * * * * * * * * * * * * * * * * *
+// Dim background
+// * * * * * * * * * * * * * * * * * * * *
+
+.dim {
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+

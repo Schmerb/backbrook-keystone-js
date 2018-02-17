@@ -1,0 +1,114 @@
+// // // // // // // // // //
+//
+//      Inquiries Section
+//
+// // // // // // // // // //
+
+.inquiries {
+    min-height: 600px;
+    padding: 40px 0;
+    text-align: center;
+    // border: 1px solid blue;
+    .inner-wrap {
+        position: relative;
+        width: 80%;
+        min-height: 500px; 
+        margin: 0 auto;
+        // border: 1px solid red;
+    }
+    // // // // // // // //
+    //
+    // BRICKLAYER IMAGE
+    //
+    // / /// // // // // //
+    .img-wrap {
+        display: inline-block;
+        width: 35%;
+        min-width: 200px;
+        max-width: 340px;
+        margin-bottom: 40px;
+        // border: 1px solid black;
+        @include mediaMin(800px) {
+            @include middleL;
+            min-width: auto;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    // // // // // // // //
+    //
+    // GET IN TOUCH BUTTON
+    //
+    // / /// // // // // //
+    .call-to-action {
+        position: relative;
+        // border: 1px solid black;
+        @include mediaMin(800px) {
+            @include middleR;
+            height: 200px;
+            width: 65%;
+            overflow: hidden;
+            label {
+                display: block;
+                margin: 0 auto;
+                width: auto;
+            }
+            a {
+                @include center;
+                bottom: 40px;
+                margin: 0;
+            }
+        }
+    }
+    a, label {
+        @include transitions(font-size 0.3s ease-in-out,
+                             color 0.3s ease-in-out,
+                             border-color 0.3s ease-in-out,
+                             background-color 0.3s ease-in-out);
+        font-size: calc(1em + 1vw);
+    }
+    label {
+        display: inline-block;
+        width: 250px;
+        pointer-events: none;
+    }
+    a {
+
+        background-color: transparent;
+        position: relative;
+        display: block;
+        width: calc(190px + 10vw);
+        height: calc(40px + 1vw);
+        line-height: calc(40px + 1vw);
+        padding-left: 20px;
+        margin: 35px auto 0;
+        text-align: left;
+        border: 2px solid rgba(grey, 0.1);
+        // border-radius: 3px;
+        &:hover {
+            // background-color: grey;
+            // color: white;
+            border-color: $brickred;
+            .icon-email-icon {
+                fill: $brickred;
+            }
+        }
+        &:active {
+            border-color: white;
+        }
+        @include mediaMin($tablet) {
+            display: inline-block;
+            margin-left: 50px;
+        }
+    }
+}
+
+.icon-email-icon {
+    @extend %default-transition;
+    @include middleR(20px);
+    width: 25px;
+    height: 25px;
+    fill: #555;
+}

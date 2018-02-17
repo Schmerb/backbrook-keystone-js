@@ -1,0 +1,85 @@
+// // // // // // // // // //
+//
+//      Loading Page
+//
+// // // // // // // // // //
+
+.loading-page {
+    @extend %cover;
+    position: fixed; 
+    opacity: 1;
+    z-index: 20;
+    &::after {
+        @extend %cover;
+        @include transform(scale(1.1));
+        content: '';
+        background-image: url($loadBgImg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: blur(20px);
+        @include mediaMax(600px) {
+            @include transform(scale(1.3));
+        }
+    }
+    &.fade-out {
+        @include transition(0.8s, all, ease-in-out, 0.8s);
+        pointer-events: none;
+        opacity: 0;
+    }
+    // SVG icons
+    .icon-brick-wall-stroke,
+    .icon-bricks-3D,
+    .icon-five-bricks {
+        @extend %abs-middle;
+        top: 49%;
+        width: 200px;
+        height: 200px;
+        fill: transparent;
+        stroke: $brickred;
+        stroke-dasharray: 50px;
+        stroke-dashoffset: 50px;
+        @include animation(draw 5s linear 0s infinite, fillin 3s linear 1s 1); 
+        animation-fill-mode: forwards; // Stay on the last frame
+    }
+    .icon.icon-loading-icon {
+        @extend %abs-middle;
+        @include animation(spin 2s linear 0s infinite reverse, colorfill 3s linear 0s infinite);
+        fill: red;
+        width: 180px;
+        height: 180px;
+    }
+    svg {
+        @include transition(0.8s, all, ease-out, 0.8s);
+        // opacity: 0;
+        z-index: 1;
+        // &.fade-in {
+        //     opacity: 1;
+        // }
+        &.fade-out {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+}
+
+@include keyframes(draw) {
+    to { stroke-dashoffset: 0; }
+}
+
+@include keyframes(fillin) {
+    to { fill: $brickred; }
+}
+
+@include keyframes(colorfill) {
+    0% {   fill: red;     }
+    50% {  fill: $brickred; }
+    100% { fill: red;     }
+}
+
+@include keyframes(spin) {
+    0% {    @include transform(translate(-50%, -50%) rotate(0deg));   }
+    50% {   @include transform(translate(-50%, -50%) rotate(180deg)); }
+    100% {  @include transform(translate(-50%, -50%) rotate(359deg)); }
+}

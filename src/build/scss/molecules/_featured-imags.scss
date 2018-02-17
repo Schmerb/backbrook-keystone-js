@@ -1,0 +1,60 @@
+// // // // // // // // // //
+//
+//      Featured Images
+//
+// // // // // // // // // //
+
+.featured {
+    // ALL images hover effect
+    .proj-img {
+        &:hover {
+            .img {
+                @include transform(scale(1.2));
+            }
+        }
+
+    }
+    // Actual image container 
+    .img {
+        @include transitions(all 0.4s ease-in-out,
+                             transform 5s linear);
+        width: 100%;
+        height: 100%;
+    }
+    // ALL images
+    .proj-img {
+        .img {
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    .lg-window {
+        .img {
+            background-image: url('/assets/images/compressed/projects/stbarn/stbarn-far-wide.jpg');
+        }
+    }
+    .md-window {
+        &:first-of-type {
+            .img {
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-from-bottom.jpg');
+            }
+        }
+        &:last-of-type {
+            .img {
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-mid-shot.jpg');
+            }
+        }
+    }
+    .sm-window {
+        &:first-of-type {
+            .img {
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-closeup.jpg');
+            }
+        }
+        &:last-of-type {
+            .img {
+                background-image: url('/assets/images/compressed/projects/bbm-1.jpg');
+            }
+        }
+    }
+}

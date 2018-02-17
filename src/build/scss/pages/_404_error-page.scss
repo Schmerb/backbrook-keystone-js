@@ -1,0 +1,55 @@
+// // // // // // // // // //
+//
+//      404 ERROR page
+//
+// // // // // // // // // //
+
+._404_error-page {
+    @extend %cover;
+    color: $brickred;
+    background-color: white;
+    .bbm-logo {
+        fill: $brickred;
+        width: 60%;
+        height: auto;
+        margin: 20px 0;
+        // border: 1px solid black;
+    }
+}
+
+.error-container {
+    @extend %center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    top: 25%;
+    width: 90%;
+    max-width: 600px;
+    min-height: 300px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 5px solid $brickred;
+    @include mediaMin(600px) {
+        padding: 20px;
+    }
+    a {
+        @extend %default-transition;
+        color: rgba($brickred, 0.5);
+        font-size: 22px;
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid rgba($brickred, 0.5);
+        @include mediaMin(600px) {
+            padding: 10px 20px;
+        }
+        &:hover, &:focus {
+            color: rgba($brickred, 1);
+            border-color: rgba($brickred, 1);
+        }
+    }
+}
+

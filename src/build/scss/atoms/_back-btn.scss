@@ -1,0 +1,16 @@
+// // // // // // // // // //
+//
+//      Back Btn
+//
+// // // // // // // // // //
+
+// BACK BTN base styles
+.icon.icon-back-btn-textured {
+    @extend %default-transition;
+    fill: rgba($brickred, 0.4);
+    width: 40px;
+    height: 40px;
+    &:hover, &:focus {
+        fill: rgba($brickred, 0.7);
+    }
+}

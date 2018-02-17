@@ -1,0 +1,108 @@
+// // // // // // // // // //
+//
+//      Employees List
+//
+// // // // // // // // // //
+
+.employees-container {
+    @extend %default-transition;
+    clear: both;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    @include mediaMin($tablet) {
+        margin-top: 130px;
+        margin-bottom: 130px;
+    }
+    &::before {
+        content: '';
+        @extend %center;
+        background-color: rgba($brickred, 0.1);
+        width: 80%;
+        height: 0.6px;
+        margin: 0 auto;
+        top: -50px;
+    }
+}
+
+// ul list
+.employees {
+    @extend %flexbox;
+    background-color: white;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(black, 0.1);
+    @include mediaMin(400px) {
+        width: 400px;
+    }
+    @include mediaMin(700px) {
+        width: 700px;
+    }
+    @include mediaMin(900px) {
+        width: 900px;
+    }
+    @include mediaMin(1100px) {
+        width: 1100px;
+    }
+    li {
+        width: 100%;
+        border-bottom: 1px solid rgba(black, 0.1);
+        flex: 1 0 0;
+        &:nth-last-of-type(1) {
+            border-bottom: none;
+        }
+        
+        // apply right-borader to all cards
+        @include mediaMin(700px) {
+            border-right: 1px solid rgba(black, 0.1); // applies to all cards
+            &:nth-last-of-type(1),
+            &:nth-last-of-type(2) {
+                border-bottom: none;
+            }
+        }
+        // Remove right-border for end card of each row
+        // TWO columns wide
+        @include mediaMinMax(700px, 899px) {
+            &:nth-of-type(2n + 2) {
+                border-right: none;
+            }
+        }
+        // THREE columns Wide
+        @include mediaMinMax(900px, 1099px) {
+            max-width: 300px;
+            // right-side end cards no border
+            &:nth-of-type(5), &:nth-of-type(8) {
+                border-right: none;
+            }
+        }
+        // FOUR columns wide
+        @include mediaMin(1100px) {
+            // right-side end cards no border
+            &:nth-of-type(6), &:nth-of-type(10) {
+                border-right: none;
+            }
+            &:nth-last-of-type(3), 
+            &:nth-last-of-type(4) {
+                border-bottom: none;
+            }
+        }
+        // - - - - - - - - -
+        // First Two cards
+        // - - - - - - - - -
+        &:nth-of-type(1),
+        &:nth-of-type(2)  {
+            max-width: 9999px; // overrides li max-width of 300px
+        }
+        @include mediaMin(900px) {
+            &:nth-of-type(1) {
+                flex-basis: 50%;
+                border-right: 1px solid rgba(black, 0.1); // applies to all cards
+            }
+            &:nth-of-type(2) {
+                flex-basis: 50%;
+                border-right: none;
+            }
+        }
+    }
+}

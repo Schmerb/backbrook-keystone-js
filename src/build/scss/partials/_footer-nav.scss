@@ -1,0 +1,56 @@
+// // // // // // // // // //
+//
+//      Footer Nav
+//
+// // // // // // // // // //
+
+.f-nav {
+    @extend %flexbox;
+    justify-content: center;
+    color: white;
+    word-spacing: -5px; // accounts for font-family: 'Cutive Mono', monospace;
+    @include mediaMin($tablet) {
+        justify-content: flex-start;
+    }
+    > ul {
+        @extend %flexbox;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 1.4em;
+        margin-top: 30px;
+        @include mediaMin($tablet) {
+            width: 100%;
+            flex-direction: row;
+        }
+    }
+    // 
+    // Nav Column / Category
+    //
+    .f-nav-col {
+        margin-bottom: 20px;
+        @include mediaMin($tablet) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        a {
+            // ALL links
+            @extend %default-transition;
+            display: block;
+            margin-bottom: 15px;
+        }
+        > a {
+            &:hover {
+                color: lightgrey;
+            }
+        }
+        li {
+            color: #bbb;
+            display: block;
+            a {
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}

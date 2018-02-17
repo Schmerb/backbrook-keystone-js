@@ -1,0 +1,59 @@
+// // // // // // // // // //
+//
+//      Slideshow
+//
+// // // // // // // // // //
+
+.slideshow {
+    @extend %cover;
+    background-color: black;
+    z-index: 1;
+    // - - - - - - - - 
+    // Dim Overlay
+    // - - - - - - - - 
+    &::after {
+        @extend %cover;
+        content: '';
+        background-color: rgba(black, 0.3);
+    }
+}
+
+.slide {
+    @extend %cover;
+    @include transitions(opacity 1.5s ease-in-out);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    &.current {
+        opacity: 1;
+    }
+}
+
+.slide-1 {
+    background-image: url('/assets/images/compressed/office/conf-room-from-front-door.jpg');
+}
+.slide-2 {
+    background-image: url('/assets/images/compressed/office/conf-room-facing-stairs.jpg');
+}
+.slide-3 {
+    background-image: url('/assets/images/compressed/office/conf-room-from-stairs.jpg');
+}
+.slide-4 {
+    background-image: url('/assets/images/compressed/office/wine-cellar.jpg');
+}
+.slide-5 {
+    background-image: url('/assets/images/compressed/office/ladies-room.jpg');
+}
+.slide-6 {
+    background-image: url('/assets/images/compressed/office/johnny-f-office-reduced.jpg');
+}
+.slide-7 {
+    background-image: url('/assets/images/compressed/office/joe-a-office.jpg');
+}
+.slide-8 {
+    background-image: url('/assets/images/compressed/office/hallway-to-shop-reduced.jpg');
+}
+.slide-9 {
+    background-image: url('/assets/images/compressed/office/front-desk-area.jpg');
+}

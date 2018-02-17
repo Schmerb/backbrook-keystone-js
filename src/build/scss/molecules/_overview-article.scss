@@ -1,0 +1,106 @@
+// // // // // // // // // //
+//
+//      Overview Article
+//
+// // // // // // // // // //
+.overview article {
+    color: white;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    > div {
+        float: left;
+    }
+    // Image wrap
+    .image-wrap {
+        position: relative;
+        font-size: 28px;
+        width: 100%;
+        height: 300px;
+        max-height: 500px;
+        @include mediaMin($tablet) {
+            width: 60%;
+            height: 400px
+        }
+        .overview-img {
+            @extend %default-transition;
+            // @include transitions(background-color 0.3s ease-in-out, 
+            //                     color 0.3s ease-in-out,
+            //                     filter 0.3s ease-in-out);
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        h2 {
+            @extend %abs-middle;
+            color: $brickred;
+            z-index: 1;
+        }
+    }
+    // Middle row, reverse order
+    &:nth-of-type(2) {
+        .image-wrap {
+            float: right;
+            h2 {
+                float: right;
+            }
+        }
+        .action {
+            background-color: #555;
+            float: left;
+        }
+    }
+    // row HOVER styling
+    &:hover {
+        .image-wrap {
+            .overview-img {
+                -webkit-filter: none;
+                filter: none;
+            }
+            h2 {
+                color: white;
+            }
+        }
+        .action {
+            background-color: $lightblue;
+            background-color: black;
+            color: white;
+            .a-btn {
+                color: $brickred;
+            }
+        }
+    }
+    // ACTION Button
+    .action {
+        @extend %default-transition;
+        background-color: $brickred;
+        position: relative;
+        width: 100%;
+        max-height: 500px;
+        @include mediaMax($tablet - 1) {
+            height: 200px;
+        }
+        @include mediaMin($tablet) {
+            width: 40%;
+            height: 400px;
+        }
+        // BUTTONS
+        .a-btn {
+            @extend %default-transition;
+            @extend %abs-middle;
+            font-weight: bold;
+            min-width: 200px;
+            text-align: center;
+            padding: 10px 25px;
+            border: 2px solid white;
+            background-color: transparent;
+            &:hover {
+                border-color: $brickred;
+                border-radius: 5px;
+            }
+            &.hear-about-us {
+                top: 60%;
+            }
+        }
+    }
+}

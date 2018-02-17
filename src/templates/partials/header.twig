@@ -1,0 +1,33 @@
+<div class="banner {{ section == 'home' ? 'landing':'pages shrink' }}">
+    
+    <a class="logo-a-wrap {{ section == 'home' ? '':'shrink' }}" href="/">
+        <div class="logo-svg-wrap">
+            {% include '../icons/bbm-icon.twig' %}
+        </div>
+    </a>
+    
+    <div class="burger-btn">
+        <div class="burger-icon"></div>
+    </div>
+    
+    <div class="banner-backdrop"></div>
+    
+    <nav class="main-nav" role="navigation">
+        <ul class="">
+            {% for link in navLinks %}
+                {% set linkClass = '' %}
+                {% if link.key in section %}
+                    {% set linkClass = ' class="active"' %}
+                {% endif %}
+                <li{{ linkClass | striptags }}>
+                    <a href="{{ link.href }}">{{ link.label }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+</div>
+
+{% if section == 'home' %}
+    {% include './slideshow.twig' %}
+{% endif %}

@@ -1,0 +1,18 @@
+// // // // // // // // // //
+//
+//      Projects
+//
+// // // // // // // // // //
+
+.projects-page {
+    min-height: 100vh;
+    .projects-header {
+        font-size: 46px;
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px 0;
+        @include mediaMin($tablet) {
+            font-size: 64px;
+        }
+    }
+}

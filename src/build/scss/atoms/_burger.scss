@@ -1,0 +1,78 @@
+// // // // // // // // // //
+//
+//      Burger 
+//
+// // // // // // // // // //
+
+
+// * * * * * * * * * * * * * * * * * * * *
+// burger BUTTON
+// * * * * * * * * * * * * * * * * * * * *
+.burger-btn {
+    @include middleR(30px);
+    @extend %default-transition;
+    background: rgba(0,0,0,0.2);
+    background: transparent;
+    width: 38px; 
+    height: 33px;
+    border: none;
+    z-index: 7;
+    cursor: pointer;
+    @include mediaMin($collapse) {
+        display: none;        
+    }
+    &:hover {
+        .burger-icon:not(.open)::after {
+            @include transform(translateY(3px));
+        }
+        .burger-icon:not(.open)::before {
+            @include transform(translateY(-3px));
+        }
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * *
+// burger ICON
+// * * * * * * * * * * * * * * * * * * * *
+.burger-icon,
+.burger-icon::after,
+.burger-icon::before {
+    @include transitions(background-color 1s ease-in-out, 
+                         transform 0.3s ease-in-out, 
+                         top 0.8s ease-in-out);
+    background-color: $offwhite;
+    width: 35px;
+    height: 3px;
+}
+
+.burger-icon {
+    @extend %abs-middle;
+    opacity: 1;
+    &:before {
+        @include middleL (0, -10px, 0);
+        content: '';
+    }
+    &:after {
+        @include middleL(0, 10px, 0);
+        content: '';
+    }
+    
+    &.open {
+        @include transition(0.2s);
+        background-color: transparent;
+
+        &:before, &:after {
+            @include transitions(background-color 0.3s ease-in-out, 
+                                 transform 0.3s ease-in-out, 
+                                 top 0.3s ease-in-out);
+            background-color: $offwhite;
+            top: 0;
+        }
+        &:before {
+            @include transform(rotate(225deg));
+        }
+        &:after {
+            @include transform(rotate(-225deg));
+        }
+    }
+}

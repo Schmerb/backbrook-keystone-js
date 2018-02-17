@@ -1,0 +1,105 @@
+// // // // // // // // // //
+//
+//      Who We Are
+//
+// // // // // // // // // //
+
+
+.who-we-are-page {
+    min-height: 100vh;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    .container {
+        @include mediaMin($desktop) {
+            margin-top: 50px;
+        }
+    }
+    //
+    // Title and Paragraph text
+    //
+    .text-container {
+        position: relative;
+        min-height: 300px;
+        max-width: 900px;
+        pointer-events: none;
+        overflow: hidden;
+        @include mediaMin($desktop) {
+            padding-left: 50px;
+        }
+        a {
+            @extend %default-transition;
+            color: rgba($brickred, 0.7);
+            &:hover, &:focus {
+                color: $brickred;
+            }
+        }
+    }
+    h2, h3 {
+        font-size: 36px;
+        margin: 0 auto;
+        padding-top: 5px;
+        padding-bottom: 30px;
+        @include mediaMax($desktop - 1) {
+            text-align: center;   
+        }
+    }
+    h3.meet-our-team {
+        font-size: 32px;
+        text-align: center;
+    }
+    h2 {
+        position: relative;
+        padding-top: 40px;
+        &::before {
+            content: '';
+            @extend %center;
+            top: 0;
+            background-color: $brickred;
+            width: 40vw;
+            min-width: 300px;
+            max-width: 500px;
+            height: 2px;
+            @include mediaMin($desktop) {
+                display: none;
+            }
+        }
+    }
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0 20px;
+        text-align: justify;
+        @include mediaMin($desktop) {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .about-bbm {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 90%;
+        margin: 20px auto;
+        text-align: justify;
+        @include mediaMin($desktop) {
+            margin: 0;
+            width: auto;
+        }
+        p {
+            max-width: 9999px;
+        }
+    }
+    // - - - - - - - - -
+    // Travelers Logo
+    // - - - - - - - - -
+    .logo-img-wrap {
+        position: relative;
+        min-height: 100px;
+        margin-top: 50px;
+    }
+    .travelers-logo {
+        @extend %center;
+        width: calc(2em + 25vw);
+        min-width: 200px;
+        max-width: 450px;
+        height: auto;
+    }
+}

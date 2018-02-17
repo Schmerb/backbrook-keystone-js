@@ -1,0 +1,73 @@
+// // // // // // // // // //
+//
+//      About Nav
+//
+// // // // // // // // // //
+
+.about-nav-container {
+    height: 100px;
+    // margin-bottom: 20px;
+    @include mediaMax($desktop - 1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @include mediaMin($desktop) {
+        height: 200px;
+        margin-top: 40px;
+        margin-right: 40px;
+        float: left;
+        border-right: 2px solid $brickred;
+    }
+    nav {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        height: inherit;
+        @include mediaMin($desktop) {
+            width: 200px;
+            margin: 0;
+        }
+        ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: inherit;
+            @include mediaMin($desktop) {
+                flex-direction: column;
+                width: inherit;
+                padding-left: 40px;
+            }
+            li {
+                position: relative;
+                flex: 1;
+                align-items: stretch;
+                @include mediaMax($desktop - 1) {
+                    text-align: center;
+                }
+                &:hover, &:focus {
+                    a {
+                        color: $brickred;
+                    }
+                }
+            }
+            a {
+                @extend %default-transition;
+                @extend %cover;
+                font-size: 16px;
+                font-weight: bold;
+                word-spacing: -5px;
+                @include mediaMin(600px) {
+                    font-size: 18px;
+                }
+                &.active {
+                    color: $brickred;
+                }
+                span {
+                    @extend %abs-middle;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

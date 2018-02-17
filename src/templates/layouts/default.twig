@@ -1,0 +1,37 @@
+{% import "../mixins/flash-messages.twig" as FlashMessages %}
+{% spaceless %}
+<!doctype html>
+<html>
+	<head>
+		{% include '../partials/head.twig' %}
+	</head>
+	<body>
+		{# symbols #}
+		{% include '../icons/symbols.twig' %}
+
+		{% if not 'projects' in section %}
+			<div class="loading-page">
+				<svg class="icon icon-five-bricks"><use xlink:href="#icon-five-bricks"></use></svg>
+				<svg class="icon icon-loading-icon"><use xlink:href="#icon-loading-icon"></use></svg>
+			</div>
+		{% endif %}
+
+		<header class={{ section == 'home' ? 'landing':'pages shrink' }} role="banner">
+			{% include '../partials/header.twig' %}
+		</header>
+		
+		<main class={{ section == 'home' ? 'landing':'pages' }} role="main">
+			{{ FlashMessages.renderMessages(messages) }}
+			{% block content %}{% endblock %}
+		</main>
+
+		<footer class="main-footer" role="contentinfo">
+			{% include '../partials/footer.twig' %}
+		</footer>
+
+		{# scripts #}
+		{% include '../partials/scripts.twig' %}
+		{% block js %}{% endblock %}
+	</body>
+</html>
+{% endspaceless %}

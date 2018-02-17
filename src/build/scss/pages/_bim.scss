@@ -1,0 +1,121 @@
+// // // // // // // // // //
+//
+//   BIM Page
+//
+// // // // // // // // // //
+
+.bim-page {
+    min-height: 100vh;
+    // BANNER
+    .bim-banner {
+        background-image: url('https://damassets.autodesk.net/content/dam/autodesk/www/solutions/bim/images/overview/overview-bimmanifesto-1920x1000.png');
+        background-position-x: 100%;
+        background-position-y: 40%;
+        background-size: cover;
+        color: white;
+        position: relative;
+        width: 100%;
+        height: 50%;
+        min-height: 350px;
+        .bim-title {
+            @extend %default-transition;
+            font-size: 48px;
+            position: absolute;
+            width: 250px;
+            top: 20px;
+            left: 20px;
+            @include mediaMax($tablet) {
+                left: auto;
+                right: 20px;
+                text-align: right;
+            }
+            @include mediaMin($desktop) {
+                top: 30px;
+                font-size: 56px;
+                // width: auto;
+            }
+        }
+    }
+    // Holds main text of page
+    .bim-container {
+        max-width: 1000px;
+        margin: 40px auto;
+    }
+    // - - - - - - - - - -
+    // question
+    // - - - - - - - - - -
+    .question-wrap {
+        @include mediaMin($tablet) {
+            margin-top: 50px;
+        }
+        .bim-question {
+            // font-family: Roboto, 'sans-serif';
+            font-size: 36px;
+            text-align: center;
+            // margin-left: 10%;
+        }
+        blockquote {
+            // font-family: Roboto, 'sans-serif';
+            footer {
+                margin-top: 20px;
+            }
+        }
+    }
+    // - - - - - - - - - -
+    // how we work
+    // - - - - - - - - - -
+    .how-we-work-wrap {
+        width: 93%;
+        margin: 50px auto;
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            // margin-left: 10%;
+        }
+    }
+    // - - - - - - - - - -
+    // Examples container
+    // - - - - - - - - - -
+    .bim-examples-container {
+        h3 {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-left: 40px;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include mediaMin($tablet) {
+                flex-direction: row;
+            }
+            li {
+                width: 96%;
+                max-width: 400px;
+                margin: 10px auto;
+                padding: 0 5px;
+            }
+        }
+        .example-card {
+            @include transition(0.2s);
+            position: relative;
+            background-color: rgba($brickred, 0.7);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 250px;
+            // border-radius: 5px;
+            &:hover, &:focus {
+                &::before {
+                    background-color: rgba($brickred, 0.5);
+                }
+            }
+            &::before {
+                @extend %cover;
+                @extend %default-transition;
+                content: '';
+                background-color: rgba($brickred, 0.1);
+            }
+        }
+    }
+}

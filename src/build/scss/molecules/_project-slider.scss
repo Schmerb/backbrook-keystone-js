@@ -1,0 +1,150 @@
+// // // // // // // // // //
+//
+//   Project Slider
+//
+// // // // // // // // // //
+
+.slider-title {
+    padding: 20px;
+    margin-left: 40px;
+    text-align: left;
+}
+// - - - - - - -
+// Slider Wrap
+// - - - - - - -
+.project-slider-wrap {
+    @extend %default-transition;
+    position: relative;
+    margin-top: 50px;
+    @include mediaMin($tablet) {
+        margin-top: 200px;
+    }
+    // SWIPE ICON
+    .swipe-msg,
+    .icon-swipe-icon {
+        @extend %default-transition;
+        @extend %center;
+        fill: white;
+        color: white;
+        z-index: 100;
+        &.fadeOut {
+            opacity: 0;
+        }
+    }
+    .icon-swipe-icon {
+        top: 150px;
+        width: 60px;
+        height: 60px;
+        @include animation(sway 4s infinite);
+        animation-timing-function: ease-in-out;
+    }
+    .swipe-msg {
+        top: 200px;
+    }
+}
+
+@include keyframes(sway) {
+    0%   { @include transform(translateX(-50%) rotate(-15deg)) }
+    50%  { @include transform(translateX(-50%) rotate(15deg))  }
+    100% { @include transform(translateX(-50%) rotate(-15deg)) }
+}
+
+// - - - - - - -
+// Slider
+// - - - - - - -
+.project-slider {
+    background-color: $brickred;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+// TRACK
+.slick-track,
+.slick-list  {
+    @extend %default-transition;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+// - - - - - - - - -
+// SLICK Arrows
+// - - - - - - - - -
+.icon.slick-arrow {
+    @extend %default-transition;
+    position: absolute;
+    fill: white;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.3;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+    &.slick-disabled {
+        opacity: 0.1;
+        pointer-events: none;
+    }
+}
+.project-slider {
+    // LEFT
+    .icon-chevron-left {
+        @include middleL(0);
+        padding-left: 20px;
+    }
+    // RIGHT
+    .icon-chevron-right {
+        @include middleR(0);
+        padding-right: 20px;
+    }
+}
+
+// - - - - - - - - - 
+// Slick Slide
+// - - - - - - - - - 
+.project-slide {
+    color: white;
+    position: relative;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100%;
+    .slide-inner-wrap {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        div {
+            @extend %abs-middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+            text-align: center;
+            @include mediaMin(515px) {
+                width: 75%;
+                max-width: 700px;
+            }
+        }
+        h2 {
+            @include transitions(opacity 0.3s ease-in-out);
+            font-size: calc(1.3em + 1vw);
+            opacity: 0.7;
+        }
+        &:hover {
+            h2 {
+                opacity: 1;
+            }
+        }
+    }
+    &::after {
+        @extend %cover;
+        content: '';
+        background-color: rgba($brickred, 0.6);
+    }
+}

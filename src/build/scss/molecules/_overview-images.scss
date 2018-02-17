@@ -1,0 +1,33 @@
+// // // // // // // // // //
+//
+//      Overview Images
+//
+// // // // // // // // // //
+
+.overview-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    @include mediaMin($tablet) {
+        height: 400px
+    }
+}
+// Meet Us
+.meet-us {
+    .overview-img {
+        background-image: url('/assets/images/compressed/staff/mike-joe-2.jpg');
+    }
+}
+// Hear About Us
+.hear-about-us {
+    .overview-img {
+        background-image: url('/assets/images/compressed/handshake.jpg');
+    }
+}
+// See Our Work
+.see-our-work {
+    .overview-img {
+        background-image: url('/assets/images/compressed/projects/bbm-1.jpg');
+    }
+}

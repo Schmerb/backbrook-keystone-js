@@ -1,0 +1,138 @@
+// // // // // // // // // //
+//
+//      Main Nav
+//
+// // // // // // // // // //
+
+// - - - - - - - - - - - - - - -
+// Fixes list to top of window
+// - - - - - - - - - - - - - - -
+@mixin fixedList() {
+    position: fixed;
+    top: 30px;
+    bottom: auto;
+    right: 0;
+    width: 75%;
+    height: 80px;
+    @include mediaMin($collapse + 200) {
+        @include transitions(top 0.5s ease-in-out,
+        width 0.5s ease-in-out);
+    }
+}
+
+// - - - - - - - -
+// Shrinks list 
+// - - - - - - - -
+@mixin shrinkList() {
+    top: 0;
+    align-content: center;
+    @include mediaMin($collapse + 200) {
+        font-size: 26px;
+        width: 1000px;
+    }
+    li {
+        &.active {
+            border-bottom: 6px solid $brickred;
+            a {
+                margin-top: 6px; // offsets the border-bottom
+            }
+        }
+    }
+}
+
+.main-nav {
+    @include transitions(top 0.5s ease-in-out,
+    font-size 0.5s ease-in-out);
+    background-color: rgba(85,85,85,0.9);
+    position: absolute;
+    top: -500px;
+    width: 100%;
+    padding-top: 60px; // must match banner height
+    font-size: calc(1.5em + 1vw);
+    z-index: 2;
+    &.open {
+        top: 0;
+    }
+    @include mediaMin($collapse) {
+        background-color: transparent;
+        top: auto;
+        bottom: 100px;
+        right: 0;
+        width: 75%;
+        height: 80px;
+        padding: 0;
+        font-size: calc(0.8em + 1vw);
+        &.open {
+            top: auto;
+        }
+        // For fixing nav items to top of screen
+        &.fixed {
+            ul {
+                @include fixedList(); // implementation above
+            }
+        }
+        // For shrinking banner nav once user 
+        // scrolls below header
+        &.shrink {
+            ul {
+                @include shrinkList(); // implementation above
+            }
+        }
+    }
+    ul {
+        @include transitions(top 0.5s ease-in-out);
+        @extend %flexbox;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(250px + 7vw);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+        @include mediaMin($collapse) {
+            flex-direction: row;
+            justify-content: space-around;
+            width: auto;
+            padding: 0;
+        }
+        li {
+            display: block;
+            line-height: 1.8em;
+            @include mediaMin($collapse) {
+                // Centers nev items vertically
+                @include flexbox;
+                flex-direction: column;
+                justify-content: center;
+            }
+            a {
+                @extend %default-transition;
+                word-spacing: -10px; // Used for spacing on multi-word nav items
+                &:hover {
+                    color: $accent;
+                    @include mediaMax($collapse - 1) {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// // // // // // // // // //
+//
+// Banner NAV on all pages
+// - Same as fixed + shrink
+// // // // // // // // // //
+.pages {
+    .main-nav {
+        // For fixing nav items to top of screen
+     @include mediaMin($collapse) {
+            ul {
+                @include fixedList();
+                @include shrinkList();
+            }
+        }
+    }
+}
+

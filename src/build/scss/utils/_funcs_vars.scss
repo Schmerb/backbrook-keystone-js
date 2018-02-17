@@ -1,0 +1,64 @@
+// // // // // // // // // // // // // //
+//
+//      Variables / Constants / functions
+//
+// // // // // // // // // // // // // // 
+
+
+// ==================================================
+//      numbers
+// ==================================================
+$banner: 80px;
+$footer: 1680px;
+@media screen and (min-width: 737px) {
+    $footer: 1300px;
+}
+// ==================================================
+//      colors
+// ==================================================
+$primary: #262626;
+$grey:    #BFBFBF;
+$offwhite:#f2f2f2;
+$red:     rgb(150,14,21);
+$dgrey:   rgb(103, 105, 114);
+
+$darkblue:  #1e1e20;
+$lightblue: #bbc3c6;
+$lightgrey: #fff;
+
+$brickred:  #aa1019;
+$aqua:      #49e8ce;
+
+$accent: cadetblue;
+$accent: $dgrey;
+
+$vfaded:rgba(0,0,0,0.1);
+$faded: rgba(0,0,0,0.5);
+
+// social brand colors
+$facebook:  #3B5898;
+$twitter:   #1da1f3;
+$linkedin:  #0077B5;
+$instagram: #c32aa3;
+
+
+$palettes: (
+    primary: (
+        base:  $primary,
+        light: lighten($primary, 5%),
+        dark:  darken($primary, 5%),
+    ),
+    grey: (
+        base:   $grey,
+        vlight: lighten($grey, 20%),
+        light:  lighten($grey, 5%),
+        dark:   darken($grey, 5%),
+        vdark:  darken($grey, 20%)
+    )
+);
+
+@function palette($palette, $tone: 'base') {
+    @return map-get( map-get($palettes, $palette), $tone);
+}
+
+

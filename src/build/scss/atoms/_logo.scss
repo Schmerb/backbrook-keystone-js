@@ -1,0 +1,64 @@
+// // // // // // // // // //
+//
+//      Logo
+//
+// // // // // // // // // //
+
+.logo-a-wrap {
+    @include transition(0.5s);
+    position: fixed;
+    top: 0;
+    left: 20px;
+    height: inherit;
+    width: 180px;
+    z-index: 4; // needed to be in front of banner-backdrop
+    @include mediaMax(600px) {
+        left: 5px;
+    }
+    @include mediaMin($collapse) {
+        width: 250px;
+        height: 10vw;
+        left: 20px;
+        &.shrink {
+            height: 80px;
+        }
+    }
+    // SVG WRAP
+    .logo-svg-wrap {
+        @extend %flexbox;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        svg { // .icon-bbm-logo
+            @include transition(0.5s);
+            width: 250px;
+            height: 100%;
+            @include mediaMin($collapse) {
+                height: 10vw;
+            }
+        }
+    }
+    // Black background
+    &.shrink {
+        // SVG
+        .icon-bbm-logo {
+            width: 180px;
+            height: 80%;
+        }
+    }
+}
+
+// - - - - - - - - - -
+// Individual Pages
+// - - - - - - - - - -
+.pages {
+    .logo-a-wrap {
+        @include mediaMin($collapse) {
+            left: 30px;
+            width: 180px;
+            height: 80px;
+        }
+    }
+}
+
+

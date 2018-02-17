@@ -1,0 +1,26 @@
+// // // // // // // // // //
+//
+//   Project Category Card
+//
+// // // // // // // // // //
+
+.category {
+    @extend %default-transition;
+    @extend %project-category-card;
+    border-radius: 5px;
+    overflow: hidden;
+    &:hover {
+        @include transform(translateY(-2px));
+    }
+}
+.category-img {
+    @extend %project-category-img;
+}
+.c-bottom {
+    @extend %project-category-bottom;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    .category-type {
+        @include middleL(30px);
+    }
+}

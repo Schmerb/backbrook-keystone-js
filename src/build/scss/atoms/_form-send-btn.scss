@@ -1,0 +1,46 @@
+// // // // // // // // // //
+//
+//  Contact Form  Send Button
+//
+// // // // // // // // // //
+
+
+.send-btn {
+    @extend %default-transition;
+    color: white;
+    background-color: rgba($brickred, 0.7);
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(black, 0.1);
+    overflow: hidden;
+    span {
+        @include transition(0.2s);
+        @extend %abs-middle;
+        left: 20%;
+    }
+    svg {
+        @include transition(0.15s);
+        @extend %abs-middle;
+        fill: white;
+        width: 25px;
+        height: 25px;
+        left: 60%;
+    }
+    // border-radius: 5px;
+    &:hover, &:focus {
+        background-color: rgba($brickred, 0.9);
+        box-shadow: 0 0 20px rgba(black, 0.2);
+        span {
+            left: 50%;
+        }
+        svg {
+            left: 110%;
+        }
+    }
+}

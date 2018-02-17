@@ -1,0 +1,106 @@
+// // // // // // // // // //
+//
+//      Category Form
+//
+// // // // // // // // // //
+
+.category-form-wrap {
+    position: relative;
+    max-width: 800px;
+    height: 150px;
+    margin: 20px auto 0;
+    // border: 1px solid red;
+    z-index: 1;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        @include mediaMin($tablet) {
+            flex-direction: row;
+        }
+    }
+    // - - - - - - - - -
+    // Category BTN
+    // - - - - - - - - -
+    .category-btn-wrap {
+        .category-btn {
+            @extend %default-transition;
+            position: relative;
+            background-color: transparent;
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            padding-left: 20px;
+            border: 2px solid rgba($brickred, 0.5);
+            border-radius: 5px;
+            &:hover {
+                border-color: rgba($brickred, 0.9);
+                svg {
+                    fill: rgba($brickred, 0.9);
+                }
+            }
+            &.open {
+                .icon-down-carrot {
+                    @include transform(translateY(-50%) rotate(180deg));
+                }
+            }
+        }
+    }
+    .icon-down-carrot {
+        @extend %default-transition;
+        @include middleR(20px);
+        fill: rgba($brickred, 0.5);
+        width: 25px;
+        height: 25px;
+    }
+
+    // - - - - - - - - -
+    // Search input
+    // - - - - - - - - -
+    .input-wrap {
+        position: relative;
+        .search-bar {
+            @extend %default-transition;
+            background-color: transparent;
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 5px;
+            padding-right: 45px;
+            border: 2px solid rgba($brickred, 0.5);
+            border-radius: 5px;
+            appearance: none;
+            outline: none;
+            // Applies dark red border while user types
+            &:focus, &:active {
+                border-color: rgba($brickred, 0.9);
+            }
+        }
+        svg {
+            @extend %default-transition;
+            @include middleR(20px);   
+        }
+        .icon-search-icon {
+            fill: rgba($brickred, 0.5);
+            width: 20px;
+            height: 20px;
+        }
+        .icon-clear-icon {
+            fill: rgba($brickred, 1);
+            width: 25px;
+            height: 25px;
+        }
+        // input wrap hover
+        &:hover, &:focus, &:active {
+            .search-bar  {
+                border-color: rgba($brickred, 0.9);
+            }
+            .icon-search-icon {
+                fill: rgba($brickred, 0.9);
+            }
+        }
+    }
+}

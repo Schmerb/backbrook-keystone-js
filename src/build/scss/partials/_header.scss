@@ -1,0 +1,85 @@
+// // // // // // // // // //
+//
+//      Header
+//
+// // // // // // // // // //
+
+header {
+    color: white;
+    position: relative;
+    z-index: 2;
+    
+    @include mediaMax($collapse - 1) {
+        height: 60px;
+    }
+    @include mediaMin($collapse) {
+        height: 80px;
+    }
+    // Needed for scroll animation to be behind header bg-image
+    &::before {
+        @include transitions(height 0.4s ease-in-out); 
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        width: 100vw;
+        height: 80px;
+        z-index: 1;
+        box-shadow: 0 0 20px rgba(black, 0.6);
+        @include mediaMin($collapse) {
+            @include transitions(height 0.4s ease-in-out); 
+        }
+    }
+    // - - - - - - - - - -
+    // Home Page
+    // - - - - - - - - - -
+    &.landing {
+        height: 100vh;
+        &::before {
+            @include mediaMin($collapse) {
+                height: 140px;
+            }
+        }
+    }
+    // - - - - - - - - - -
+    // Individual Pages
+    // - - - - - - - - - -
+    &.pages {
+        @include mediaMax($collapse - 1) {
+            &::before {
+                height: 60px;
+            }
+            // Needed to overlay dropdown menu on smaller viewpoints
+            .banner-backdrop {
+                height: 60px;
+                z-index: 3;
+                opacity: 1;
+            }
+        }
+        @include mediaMin($collapse) {
+            background-color: black;
+            height: 80px;
+        }
+    }
+    &.shrink {
+        &::before {
+            height: 60px;
+            @include mediaMax($collapse - 1) {
+                @include transitions(height 0.4s ease-in-out, opacity 1s ease-in-out); 
+                opacity: 0;
+            }
+            @include mediaMin($collapse) {
+                height: 80px;
+            }
+        }
+        // Needed to overlay dropdown menu on smaller viewpoints
+        .banner-backdrop {
+            height: 60px;
+            @include mediaMax($collapse - 1) {
+                z-index: 3;
+                opacity: 1;
+            }
+        }
+    }   
+}

@@ -1,0 +1,40 @@
+// // // // // // // // // //
+//
+//      Overview
+//
+// // // // // // // // // //
+
+.overview {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    overflow: auto;
+}
+// ---------------
+// Hear About Us 
+// ---------------
+.hear-about-us {
+    blockquote {
+        max-width: 300px;
+        line-height: 1.3em;
+        margin: 0 auto;
+        @include mediaMax($tablet - 1) {
+            padding: 10px 5px;
+        }
+        @include mediaMin($tablet) {
+            padding: 0 5px;
+        }
+        @include mediaMin(800px) {
+            margin-top: 40px;
+        }
+        @include mediaMin(900px) {
+            font-size: 18px;
+            text-align: justify;
+        }
+        @include mediaMin($desktop) {
+            font-size: 22px;
+            width: 90%;
+            max-width: 400px;
+            margin-top: 100px;
+        }
+    }
+}
