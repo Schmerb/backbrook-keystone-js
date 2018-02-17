@@ -25,8 +25,8 @@ exports.initLocals = function (req, res, next) {
 			{ label: 'Meet Our Team', subkey: 'meetourteam', href: '/who-we-are' },
 			{ label: 'Safety', 	      subkey: 'safety', 	 href: '/who-we-are/safety' },
 			{ label: 'Bonding', 	  subkey: 'bonding', 	 href: '/who-we-are/bonding' },
-			{ label: 'Genesis of the <br> Backbrook Name', subkey: 'genesis', href: '/who-we-are/genesis-of-the-name' },
-			{ label: 'Jesus was a <br> Stone Mason', 	  subkey: 'jesus',   href: '/who-we-are/jesus-was-a-stone-mason' }
+			{ label: 'Genesis of the Backbrook Name', subkey: 'genesis', href: '/who-we-are/genesis-of-the-name' },
+			{ label: 'Jesus was a Stone Mason', 	  subkey: 'jesus',   href: '/who-we-are/jesus-was-a-stone-mason' }
 		] },
 		{ label: 'BIM', key: 'bim', href: '/BIM', pages: [
 			{ label: 'Examples', subkey: 'examples', href: '/BIM/examples' }

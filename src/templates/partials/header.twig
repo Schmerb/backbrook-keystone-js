@@ -13,7 +13,7 @@
     <div class="banner-backdrop"></div>
     
     <nav class="main-nav" role="navigation">
-        <ul class="">
+        <ul class="menu-list list">
             {% for link in navLinks %}
                 {% set linkClass = '' %}
                 {% if link.key in section %}
@@ -21,6 +21,13 @@
                 {% endif %}
                 <li{{ linkClass | striptags }}>
                     <a href="{{ link.href }}">{{ link.label }}</a>
+                    <ul class="sub-menu-list list">
+                        {% for sublink in link.pages %}
+                            <li>
+                                <a href={{ sublink.href }}>{{ sublink.label }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </li>
             {% endfor %}
         </ul>

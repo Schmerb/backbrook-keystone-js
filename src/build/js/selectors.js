@@ -6,6 +6,7 @@
 
 module.exports = {
     MAIN_NAV: '.main-nav',
+    MENU_LIST: '.menu-list',
     BANNER: '.banner',
     LOGO_WRAP: '.logo-a-wrap',
     TROWEL_ICON: '.icon-trowel-outline',

@@ -147,6 +147,29 @@
     animation-iteration-count: infinite;
 }
 
+@mixin custom-scrollbars($track: #eee, $slider: $brickred) {
+    &::-webkit-scrollbar { // background of bar itself
+        background-color: $track;
+        width: 11px;
+    }
+    &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
+        background-color: $slider;
+        border-radius: 20px;
+    }
+    &::-webkit-scrollbar-corner { // addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet
+        background-color: transparent;
+    }
+    // IE custom scrollbar support
+    scrollbar-base-color: $track;
+    scrollbar-face-color: $slider;
+    scrollbar-3dlight-color: $track;
+    scrollbar-highlight-color: $track;
+    scrollbar-track-color: $track;
+    scrollbar-arrow-color: $slider;
+    scrollbar-shadow-color: $track;
+    scrollbar-dark-shadow-color: $track;
+}
+
 // ==================================================
 //      placeholders
 // ==================================================
@@ -177,6 +200,10 @@
 
 %abs-middle {
     @include abs-middle;
+}
+
+%custom-scrollbars {
+    @include custom-scrollbars;
 }
 
 // ==================================================

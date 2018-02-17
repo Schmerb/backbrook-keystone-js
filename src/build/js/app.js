@@ -9,9 +9,9 @@ const state = {
 // SELECTOR CONSTANTS
 const {
     MAIN_NAV,
+    MENU_LIST,
     BANNER,
     LOGO_WRAP,
-    TROWEL_ICON,
     RESULTS_CONTAINER,
     SEARCH_RESULTS,
     SEARCH_ICON,
@@ -215,19 +215,17 @@ function checkForTouch() {
 function burgerClick() {
     $('.burger-btn').on('click', function(e) {
         e.preventDefault();
-        let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}`;
+        let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}, ${MENU_LIST}`;
         $(burger).toggleClass('open');
-    });
-}
-
-
-function trowelClick() {
-    $(TROWEL_ICON).on('click', e => {
-        e.preventDefault();
-        // smoothScroll('#overview');
-        // Adjust timing on banner shrink to coincide with the
-        // initial smoothScroll --> avoids a delay
-        smoothScroll('#overview', 1000, -60);
+        if($('html').hasClass('no-scroll')) {
+            $('html').removeClass('no-scroll');
+        } else {
+            setTimeout(() => {
+                // allows menu to cover page before scroll bar 
+                // dissappearance causes obvious page jump 
+                $('html').addClass('no-scroll'); 
+            }, 200);
+        }
     });
 }
 
@@ -288,7 +286,6 @@ function backBtnClick() {
 
 function navClicks() {
     burgerClick();
-    trowelClick();
 }
 
 function categoryForm() {

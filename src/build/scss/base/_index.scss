@@ -24,26 +24,7 @@ html, body {
     // - - - - - - - - - - -
     // custom scroll bars
     // - - - - - - - - - - -
-    &::-webkit-scrollbar { // background of bar itself
-        background-color: #eee;
-        width: 11px;
-    }
-    &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
-        background-color: $brickred;
-        border-radius: 20px;
-    }
-    &::-webkit-scrollbar-corner { // addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet
-        background-color: transparent;
-    }
-    // IE custom scrollbar support
-    scrollbar-base-color: #eee;
-    scrollbar-face-color: $brickred;
-    scrollbar-3dlight-color: #eee;
-    scrollbar-highlight-color: #eee;
-    scrollbar-track-color: #eee;
-    scrollbar-arrow-color: $brickred;
-    scrollbar-shadow-color: #eee;
-    scrollbar-dark-shadow-color: #eee;
+    @extend %custom-scrollbars;
 }
 
 
@@ -58,7 +39,6 @@ body {
     min-height: 100vh;
     min-width: 320px;
     margin: 0;
-    overflow: hidden;
 
     // Sticky Footer
     padding-bottom: calc(1950px + 5vw);;
