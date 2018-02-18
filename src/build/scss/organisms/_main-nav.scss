@@ -4,7 +4,6 @@
 //
 // // // // // // // // // //
 
-
 .main-nav {
     @extend %default-transition;
     @extend %flexbox;
@@ -12,7 +11,9 @@
     position: fixed;
     top: calc(-100vh - 20px);
     right: 0;
-    background-color: grey;
+    background-color: white;
+    color: #222;
+    color: $brickred;
     width: 100%;
     height: 100vh;
     padding-top: 80px;
@@ -35,36 +36,46 @@
         flex-direction: column;
         justify-content: space-between;
         li {
-            
-        }
-        @include mediaMin($collapse) {
-            flex-direction: row;
-            justify-content: space-around;
-            width: auto;
-            padding: 0;
+            a {
+                @include transition(0.2s);
+                &:hover {
+                    color: #777;
+                }
+            }   
         }
     }
     // - - - - - - - - - - - - - - - - - - -
     // Main Menu
     // - - - - - - - - - - - - - - - - - - -
     .menu-list {
-        @include custom-scrollbars(grey);
+        @include custom-scrollbars(white);
         overflow-y: scroll;
         width: 100%;
+        max-width: 380px;
         max-height: 650px;
         padding-bottom: 10px;
         padding-left: 30px;
         padding-right: 30px;
+        @include mediaMin($tablet) {
+            max-width: 9999px;
+            margin-top: 15vh;
+            flex-direction: row;
+            justify-content: space-between;
+        }
         > li {
             margin-bottom: 15px;
             &:last-of-type {
                 display: none;
             }
+            &.active {
+                > a {
+                    border-bottom: 2px solid rgba(#555, 0.5);
+                }
+            }
             > a {
                 font-size: 1.4em;
                 display: inline-block;
-                margin-bottom: 5px;
-                // border: 1px solid black;
+                margin-bottom: 8px;
             }
         }
     }
@@ -74,6 +85,9 @@
     .sub-menu-list {
         li  {
             margin-bottom: 15px;
+            @include mediaMin($tablet) {
+                max-width: 150px; // forces long menu items to wrap to next line, more even column spacing
+            }
         }
     }
 }

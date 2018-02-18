@@ -50,10 +50,9 @@ header {
             &::before {
                 height: 60px;
             }
-            // Needed to overlay dropdown menu on smaller viewpoints
             .banner-backdrop {
                 height: 60px;
-                z-index: 3;
+                z-index: 1; // Needed to overlay dropdown menu on smaller viewpoints
                 opacity: 1;
             }
         }
@@ -73,11 +72,11 @@ header {
                 height: 80px;
             }
         }
-        // Needed to overlay dropdown menu on smaller viewpoints
+        
         .banner-backdrop {
             height: 60px;
             @include mediaMax($collapse - 1) {
-                z-index: 3;
+                z-index: 1; // Needed to overlay dropdown menu on smaller viewpoints
                 opacity: 1;
             }
         }

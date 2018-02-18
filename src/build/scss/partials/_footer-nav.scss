@@ -63,4 +63,14 @@
             }
         }
     }
+    .sub-menu-list {
+        li {
+            @include mediaMin($tablet) {       
+                max-width: 170px;
+            }
+            @include mediaMin($desktop) {
+                max-width: 240px;
+            }
+        }
+    }
 }

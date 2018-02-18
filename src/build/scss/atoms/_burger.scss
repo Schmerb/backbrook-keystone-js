@@ -28,6 +28,10 @@
         .burger-icon:not(.open)::before {
             @include transform(translateY(-3px));
         }
+        .burger-icon.open::after,
+        .burger-icon.open::before  {
+            background-color:rgba($brickred, 0.6);
+        }
     }
 }
 
@@ -66,6 +70,7 @@
                                  transform 0.3s ease-in-out, 
                                  top 0.3s ease-in-out);
             background-color: $offwhite;
+            background-color: grey;
             top: 0;
         }
         &:before {
