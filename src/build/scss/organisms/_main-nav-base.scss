@@ -26,6 +26,7 @@
         opacity: 0;
     }
     @include mediaMin($collapse) {
+        justify-content: flex-end;
         width: calc(100% - 280px);
         height: 120px;
         // border: 1px solid white;
@@ -66,13 +67,14 @@
             padding-bottom: 10px;
             padding-left: 30px;
             padding-right: 30px;
+            padding-top: 20px;
         }
         @include mediaMin($tablet) {
-            font-size: 0.9em;
-            max-width: 9999px;
-            margin-top: 15vh;
             flex-direction: row;
             justify-content: space-between;
+            font-size: 0.9em;
+            max-width: 800px;
+            margin-top: 15vh;
             overflow-y: scroll;
         }
         @include mediaMin(800px) {

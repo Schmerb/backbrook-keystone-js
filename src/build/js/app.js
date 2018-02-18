@@ -221,12 +221,12 @@ function burgerClick() {
         let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}, ${MENU_LIST}`;
         $(burger).toggleClass('open');
         if($('html').hasClass('no-scroll')) {
-            $('html').removeClass('no-scroll');
+            $('html, body').removeClass('no-scroll');
         } else {
             setTimeout(() => {
                 // allows menu to cover page before scroll bar 
                 // dissappearance causes obvious page jump 
-                $('html').addClass('no-scroll'); 
+                $('html, body').addClass('no-scroll'); 
             }, 200);
         }
     });
