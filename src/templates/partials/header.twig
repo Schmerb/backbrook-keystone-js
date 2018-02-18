@@ -1,6 +1,6 @@
 <div class="banner {{ section == 'home' ? 'landing':'pages shrink' }}">
     
-    <a class="logo-a-wrap {{ section == 'home' ? '':'shrink' }}" href="/">
+    <a class="logo-a-wrap {{ section != 'home' ? 'shrink':'' }}" href="/">
         <div class="logo-svg-wrap">
             {% include '../icons/bbm-icon.twig' %}
         </div>
@@ -12,16 +12,16 @@
     
     <div class="banner-backdrop"></div>
     
-    <nav class="main-nav" role="navigation">
-        <ul class="menu-list list">
+    <nav class="main-nav {{ section != 'home' ? 'shrink':'' }}" role="navigation">
+        <ul class="menu-list list {{ section != 'home' ? 'shrink':'' }}">
             {% for link in navLinks %}
                 {% set linkClass = '' %}
                 {% if link.key in section %}
                     {% set linkClass = ' class="active"' %}
                 {% endif %}
                 <li{{ linkClass | striptags }}>
-                    <a href="{{ link.href }}">{{ link.label }}</a>
-                    <ul class="sub-menu-list list">
+                    <a class="nav-header" href="{{ link.href }}">{{ link.label }}</a>
+                    <ul class="sub-menu-list list {{ link.key }}">
                         {% for sublink in link.pages %}
                             <li>
                                 <a href={{ sublink.href }}>{{ sublink.label }}</a>

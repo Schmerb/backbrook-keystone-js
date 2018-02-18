@@ -1,0 +1,49 @@
+// // // // // // // // // //
+//
+//    Main Nav With Shrink 
+//    Class applied
+//
+// // // // // // // // // //
+
+@include mediaMin($collapse) {
+    .main-nav {
+        &.shrink {
+            height: 80px;
+        }
+        // - - - - - - - - - - - - - - - - - - -
+        // Main Menu
+        // - - - - - - - - - - - - - - - - - - -
+        .menu-list {
+            &.shrink {
+                .nav-header {
+                    height: 80px;
+                    line-height: 80px;
+                }
+                > li {
+                    &.active {
+                        .nav-header  {
+                            border-bottom: 2px solid rgba(#555, 0.5);
+                            @include mediaMin($collapse) {
+                                border-bottom: 5px solid $brickred; // Apply once SHRINK class is applied
+                            }
+                        }
+                    }
+                }
+                .sub-menu-list {
+                    background-color: rgba($brickred, 0.7);
+                    padding: 10px;
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    box-shadow: 0 0 40px rgba(black, 0.7);
+                }
+            }
+            
+        }
+        // - - - - - - - - - - - - - - - - - - -
+        // Sub Menu 
+        // - - - - - - - - - - - - - - - - - - -
+        .sub-menu-list {
+            
+        }
+    }
+}

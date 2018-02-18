@@ -1,0 +1,167 @@
+// // // // // // // // // //
+//
+//      Main Nav
+//
+// // // // // // // // // //
+
+@mixin dropMenuDown {
+    max-height: 999px;
+    opacity: 1;
+}
+
+.main-nav {
+    @extend %default-transition;
+    @extend %flexbox;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2; // NEEDED to be in front of bg image
+    @include mediaMax($collapse - 1) {
+        color: $brickred;
+        background-color: white;
+        top: calc(-100vh - 20px);
+        padding-top: 80px;
+        opacity: 0;
+    }
+    @include mediaMin($collapse) {
+        width: calc(100% - 280px);
+        height: 120px;
+        // border: 1px solid white;
+    }
+    &.open {
+        top: 0;
+        opacity: 1;
+    }
+    // - - - - - - - - - - - - - - - - - - -
+    // Menu/Sub-Menu Lists
+    // - - - - - - - - - - - - - - - - - - -
+    .list {
+        @extend %default-transition;
+        @extend %flexbox;
+        flex-direction: column;
+        justify-content: space-between;
+        li {
+            a {
+                @include transition(0.2s);
+                &:hover {
+                    color: #777;
+                    @include mediaMin($collapse) {
+                        color: lightgrey;
+                    }
+                }
+            }   
+        }
+    }
+    // - - - - - - - - - - - - - - - - - - -
+    // Main Menu
+    // - - - - - - - - - - - - - - - - - - -
+    .menu-list {
+        @include custom-scrollbars(white);
+        width: 100%;
+        @include mediaMax($collapse - 1) {
+            max-width: 380px;
+            max-height: 650px;
+            padding-bottom: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        @include mediaMin($tablet) {
+            font-size: 0.9em;
+            max-width: 9999px;
+            margin-top: 15vh;
+            flex-direction: row;
+            justify-content: space-between;
+            overflow-y: scroll;
+        }
+        @include mediaMin(800px) {
+            font-size: 1em;
+        }
+        // Styles for large viewports
+        @include mediaMin($collapse) {
+            margin: 0;
+            padding: 0 10px;
+            overflow: visible;
+            &.shrink {
+                .nav-header {
+                    height: 80px;
+                    line-height: 80px;
+                }
+            }
+        }
+        .nav-header {
+            font-size: 1.4em;
+            display: inline-block;
+            margin-bottom: 8px;
+            @include mediaMin($collapse) {
+                display: inline-block;
+                height: 120px;
+                line-height: 120px;
+                // Shows Dropdown SubMenus
+                &:hover, &:focus {
+                    ~.sub-menu-list {
+                        @include dropMenuDown;
+                    }
+                }
+            }
+        }
+        > li {
+            // Column Headers
+            position: relative;
+            margin-bottom: 15px;
+            &:last-of-type {
+                display: none;
+            }
+            &.active {
+                .nav-header {
+                    @include mediaMin($collapse) {
+                        border-bottom: 5px solid transparent; // Apply once SHRINK class is applied
+                    }
+                }
+            }
+        }
+    }
+    // - - - - - - - - - - - - - - - - - - -
+    // Sub Menu (Dropdown on large screens)
+    // - - - - - - - - - - - - - - - - - - -
+    .sub-menu-list {
+        @include transitions(max-height 0.3s ease-in-out, 
+                             opacity 0.3s ease-in-out, 
+                             background-color 0.3s ease-in-out);
+        @include mediaMin($collapse) {
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 80px;
+            max-height: 0;
+            padding-top: 5px;
+            opacity: 0;
+            overflow: hidden;
+            // Shows Dropdown SubMenus
+            &:hover, &:focus {
+                @include dropMenuDown;
+            }
+            min-width: 200px;
+            &.about-us {
+                width: 320px;
+            }
+            li {
+                // gives spacing between dropdown sub-menu items
+                margin-bottom: 15px;
+            }
+        }
+        li  {
+            @include mediaMax($collapse - 1) {
+                margin-bottom: 15px;
+            }
+            @include mediaMinMax($tablet, $collapse - 1) {
+                max-width: 150px; // forces long menu items to wrap to next line, more even column spacing
+            }
+        }
+    }
+}
+
+
+

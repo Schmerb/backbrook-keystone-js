@@ -7,6 +7,7 @@
 // SELECTOR CONSTANTS
 const {
     MAIN_NAV,
+    MENU_LIST,
     BANNER,
     LOGO_WRAP,
     TROWEL_ICON
@@ -47,6 +48,7 @@ const fixBanner = () => {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const shrinkNav = () => {
     $(MAIN_NAV).add(BANNER)
+               .add(MENU_LIST)
                .add('header')
                .add(LOGO_WRAP)
                .addClass('shrink');
@@ -56,6 +58,7 @@ const shrinkNav = () => {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const expandNav = () => {
     $(MAIN_NAV).add(BANNER)
+               .add(MENU_LIST)
                .add('header')
                .add(LOGO_WRAP)
                .removeClass('shrink');

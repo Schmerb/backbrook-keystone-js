@@ -192,6 +192,9 @@ function checkSize() {
         // remove z-index on header for collapse nav views (<1060px)
         $('header').css('z-index', '');
     } 
+    if(width >= 1060) {
+        $('html').removeClass('no-scroll');
+    }
     fixBanner();
 }
 
