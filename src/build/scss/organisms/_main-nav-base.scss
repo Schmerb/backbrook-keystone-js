@@ -7,6 +7,7 @@
 @mixin dropMenuDown {
     max-height: 999px;
     opacity: 1;
+    pointer-events: all;
 }
 
 .main-nav {
@@ -27,10 +28,11 @@
     }
     @include mediaMin($collapse) {
         justify-content: flex-end;
-        width: calc(100% - 280px);
+        width: calc(100% - 330px);
         height: 120px;
+    }
+    @include mediaMin($collapse + 200) {
         padding-right: 100px;
-        // border: 1px solid white;
     }
     &.open {
         top: 0;
@@ -74,7 +76,7 @@
             flex-direction: row;
             justify-content: space-between;
             font-size: 0.9em;
-            max-width: 800px;
+            max-width: 9999px;
             margin-top: 15vh;
             overflow-y: scroll;
         }
@@ -83,6 +85,7 @@
         }
         // Styles for large viewports
         @include mediaMin($collapse) {
+            max-width: 800px;
             margin: 0;
             padding: 0 10px;
             overflow: visible;
@@ -130,7 +133,7 @@
     // Sub Menu (Dropdown on large screens)
     // - - - - - - - - - - - - - - - - - - -
     .sub-menu-list {
-        @include transitions(max-height 0.3s ease-in-out, 
+        @include transitions(max-height 0.6s ease-in-out, 
                              opacity 0.3s ease-in-out, 
                              background-color 0.3s ease-in-out);
         @include mediaMin($collapse) {
@@ -144,6 +147,7 @@
             padding-top: 5px;
             opacity: 0;
             overflow: hidden;
+            pointer-events: none;
             // Shows Dropdown SubMenus
             &:hover, &:focus {
                 @include dropMenuDown;
