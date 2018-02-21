@@ -1,0 +1,32 @@
+{% extends "../layouts/default.twig" %}
+
+<section id="contact-us" class="contact-us-page">
+    <div class="headers">
+        <h2>Get in touch</h2>
+        <h3>Let's talk about your project</h3>
+    </div>
+    <div class="form-container">
+        <form>
+            <p>
+                <input type="text"  name="firstName" placeholder="First Name*" required>
+                <input type="text"  name="lastName"  placeholder="Last Name*" required>
+            </p>
+            <p>
+                <input type="email" name="email"       placeholder="Email*" required>
+                <input type="tel"   name="phoneNumber" placeholder="Phone Number">
+            </p>
+            <p>
+                <input class="full-w" type="text"  name="company" placeholder="Company*" required>
+                <input class="full-w" type="text"  name="subject" placeholder="Subject">
+                <textarea placeholder="Write your message..." required></textarea>
+            </p>
+            <button class="send-btn" type="submit">
+                <span>Send</span>
+                <svg class="icon icon-paper-airplane"><use xlink:href="#icon-paper-airplane"></use></svg>
+            </button>
+        </form>
+    </div>
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+</section>

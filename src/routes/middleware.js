@@ -22,11 +22,12 @@ exports.initLocals = function (req, res, next) {
 			{ label: 'Contact Us', subkey: 'contact-us', href: '/contact-us' }
 		] },
 		{ label: 'ABOUT US', key: 'about-us', href: '/about-us', pages: [
-			{ label: 'Meet Our Team', subkey: 'meetourteam', href: '/who-we-are' },
-			{ label: 'Safety', 	      subkey: 'safety', 	 href: '/who-we-are/safety' },
-			{ label: 'Bonding', 	  subkey: 'bonding', 	 href: '/who-we-are/bonding' },
-			{ label: 'Genesis of the Backbrook Name', subkey: 'genesis', href: '/who-we-are/genesis-of-the-name' },
-			{ label: 'Jesus was a Stone Mason', 	  subkey: 'jesus',   href: '/who-we-are/jesus-was-a-stone-mason' }
+			{ label: 'Who We Are', 	  subkey: 'who-we-are',  href: '/about-us' },
+			{ label: 'Meet Our Team', subkey: 'meet-our-team', href: '/about-us/meet-our-team' },
+			{ label: 'Safety', 	      subkey: 'safety', 	 href: '/about-us/safety' },
+			{ label: 'Bonding', 	  subkey: 'bonding', 	 href: '/about-us/bonding' },
+			{ label: 'Genesis of the Backbrook Name', subkey: 'genesis', href: '/about-us/genesis-of-the-name' },
+			{ label: 'Jesus was a Stone Mason', 	  subkey: 'jesus',   href: '/about-us/jesus-was-a-stone-mason' }
 		] },
 		{ label: 'BIM', key: 'bim', href: '/BIM', pages: [
 			{ label: 'Examples', subkey: 'examples', href: '/BIM/examples' }

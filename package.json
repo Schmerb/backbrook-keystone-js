@@ -5,6 +5,7 @@
   "dependencies": {
     "async": "2.1.4",
     "dotenv": "4.0.0",
+    "google-maps-api": "^2.0.1",
     "keystone": "4.0.0-beta.5",
     "keystone-email": "1.0.5",
     "lodash": "^4.13.1",
@@ -23,7 +24,10 @@
     "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
+    "gulp-changed": "^3.2.0",
     "gulp-clean-css": "^3.9.2",
+    "gulp-image": "^4.3.0",
+    "gulp-image-resize": "^0.13.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",

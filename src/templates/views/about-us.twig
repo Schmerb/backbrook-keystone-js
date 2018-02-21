@@ -1,4 +1,4 @@
-{% extends "../layouts/default.twig" %}
+{% extends "../layouts/default.twig" %} 
 
 {% block content %}
     <section id="who-we-are" class="who-we-are-page">
@@ -6,34 +6,30 @@
             <div class="about-nav-container">
                 <nav class="sub-nav">
                     <ul>
-                        <li>
-                            <a href="/about-us" class="{{ section == '/about-us' ? 'active':'' }}">
-                                <span>Who We Are</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/about-us/safety" class="{{ section == '/about-us/safety' ? 'active':'' }}">
-                                <span>Safety</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/about-us/bonding" class="{{ section == '/about-us/bonding' ? 'active':'' }}">
-                                <span>Bonding</span>
-                            </a>
-                        </li>
+                        {% set links = navLinks[1].pages %}
+                        {% for link in links %} 
+                            {% set linkClass = '' %} 
+                            {% if (link.subkey in section) or (section == '/about-us' and link.subkey == 'who-we-are') %} 
+                                {% set linkClass = ' active' %} 
+                            {% endif %}
+                            <li>
+                                <a class="{{ linkClass }}" href="{{ link.href }}">{{ link.label }}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </div>
 
-            {% if section == '/about-us' %}
-                {% include '../blocks/who-we-are.twig' %}
-            {% elseif section == '/about-us/safety' %}
-                {% include '../blocks/safety.twig' %}
-            {% elseif section == '/about-us/bonding' %}
-                {% include '../blocks/bonding.twig' %}
+            {% if section == '/about-us' %} 
+                {% include '../blocks/about-us/who-we-are.twig' %}
+            {% elseif section == '/about-us/meet-our-team' %} 
+                {% include '../blocks/about-us/meet-our-team.twig' %} 
+            {% elseif section == '/about-us/safety' %} 
+                {% include '../blocks/about-us/safety.twig' %} 
+            {% elseif section == '/about-us/bonding' %} 
+                {% include '../blocks/about-us/bonding.twig' %} 
             {% endif %}
-        
+
         </div>
     </section>
-        
-{% endblock %} 
+{% endblock %}

@@ -1,0 +1,12 @@
+<a href="{{ user.url }}" class="employee-card-anchor">
+    <div class="employee-card">
+        <div class="content">
+            <div class="img" style="background-image:url('{{ user.imgUrl }}');"></div>
+        </div> 
+        <div class="image-description">
+            {% set name = user.name|split(' ') %}
+            <h3 class="name">{{ name[0] }}<br>{{ name[1] ?  name[1] : '' }}</h3>
+            <p class="job-title">{{ user.jobTitle }}</p>
+        </div>
+    </div>
+</a>

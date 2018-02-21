@@ -4,9 +4,8 @@
 //
 // // // // // // // // // //
 
-
 .who-we-are-page {
-    min-height: 100vh;
+    min-height: 50vh;
     max-width: 1700px;
     margin: 0 auto;
     padding-bottom: 20px;
@@ -15,17 +14,23 @@
             margin-top: 50px;
         }
     }
-    //
+    // All sections
+    section {
+        padding-top: 30px;
+    }
+    // - - - - - - - - - - - - -
     // Title and Paragraph text
-    //
+    // - - - - - - - - - - - - -
     .text-container {
         position: relative;
         min-height: 300px;
         max-width: 900px;
         pointer-events: none;
         overflow: hidden;
+        margin: 0 auto;
         @include mediaMin($desktop) {
             padding-left: 50px;
+            padding-right: 50px;
         }
         a {
             @extend %default-transition;
@@ -38,31 +43,10 @@
     h2, h3 {
         font-size: 36px;
         margin: 0 auto;
-        padding-top: 5px;
-        padding-bottom: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         @include mediaMax($desktop - 1) {
             text-align: center;   
-        }
-    }
-    h3.meet-our-team {
-        font-size: 32px;
-        text-align: center;
-    }
-    h2 {
-        position: relative;
-        padding-top: 40px;
-        &::before {
-            content: '';
-            @extend %center;
-            top: 0;
-            background-color: $brickred;
-            width: 40vw;
-            min-width: 300px;
-            max-width: 500px;
-            height: 2px;
-            @include mediaMin($desktop) {
-                display: none;
-            }
         }
     }
     p {

@@ -6,23 +6,9 @@
 
 .employees-container {
     @extend %default-transition;
-    clear: both;
     position: relative;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    @include mediaMin($tablet) {
-        margin-top: 130px;
-        margin-bottom: 130px;
-    }
-    &::before {
-        content: '';
-        @extend %center;
-        background-color: rgba($brickred, 0.1);
-        width: 80%;
-        height: 0.6px;
-        margin: 0 auto;
-        top: -50px;
-    }
+    // max-width: 1100px;
+    border: 1px solid black;
 }
 
 // ul list
@@ -32,6 +18,7 @@
     flex-wrap: wrap;
     width: 100%;
     margin: 20px auto;
+    border: 1px solid black;
     box-shadow: 0 0 10px rgba(black, 0.1);
     @include mediaMin(400px) {
         width: 400px;
@@ -42,9 +29,9 @@
     @include mediaMin(900px) {
         width: 900px;
     }
-    @include mediaMin(1100px) {
-        width: 1100px;
-    }
+    // @include mediaMin(1100px) {
+    //     width: 1100px;
+    // }
     li {
         width: 100%;
         border-bottom: 1px solid rgba(black, 0.1);
@@ -52,7 +39,6 @@
         &:nth-last-of-type(1) {
             border-bottom: none;
         }
-        
         // apply right-borader to all cards
         @include mediaMin(700px) {
             border-right: 1px solid rgba(black, 0.1); // applies to all cards

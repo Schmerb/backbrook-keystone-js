@@ -46,6 +46,7 @@ keystone.set('locals', {
 keystone.set('cloudinary config', process.env.CLOUDINARY_URL );
 keystone.set('cookie secret',  process.env.SECRET);
 
+
 // Load your project's Routes
 keystone.set('routes', require('./src/routes'));
 

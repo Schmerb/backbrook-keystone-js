@@ -5,69 +5,68 @@
 // // // // // // // // // //
 
 .about-nav-container {
-    height: 100px;
-    // margin-bottom: 20px;
-    @include mediaMax($desktop - 1) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    position: relative;
+    font-size: 14px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    // height: 100px;
+    // border: 1px solid green;
     @include mediaMin($desktop) {
-        height: 200px;
-        margin-top: 40px;
-        margin-right: 40px;
         float: left;
-        border-right: 2px solid $brickred;
     }
-    nav {
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-        height: inherit;
-        @include mediaMin($desktop) {
-            width: 200px;
-            margin: 0;
+    &::after {
+        content: '';
+        position: absolute;
+        background-color: $brickred;
+        @include mediaMax($desktop - 1) {
+            @include center;
+            max-width: 500px;
+            width: 40vw;
+            min-width: 300px;
+            height: 2px;
+            bottom: 0;
         }
-        ul {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            height: inherit;
-            @include mediaMin($desktop) {
-                flex-direction: column;
-                width: inherit;
-                padding-left: 40px;
-            }
-            li {
-                position: relative;
-                flex: 1;
-                align-items: stretch;
-                @include mediaMax($desktop - 1) {
-                    text-align: center;
-                }
-                &:hover, &:focus {
-                    a {
-                        color: $brickred;
-                    }
-                }
-            }
-            a {
-                @extend %default-transition;
-                @extend %cover;
-                font-size: 16px;
-                font-weight: bold;
-                word-spacing: -5px;
-                @include mediaMin(600px) {
-                    font-size: 18px;
-                }
-                &.active {
-                    color: $brickred;
-                }
-                span {
-                    @extend %abs-middle;
-                    width: 100%;
-                }
-            }
+        @include mediaMin($desktop) {
+            width: 2px;
+            height: 100%;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
+// - - - - - - - - - - - - -
+//
+// - - - - - - - - - - - - -
+.sub-nav {
+    ul {
+        @extend %flexbox;
+        flex-direction: column;
+        padding-left: 5px;
+        padding-right: 5px;
+        @include mediaMin($desktop) {
+            width: 300px;
+            padding-right: 20px;
+        }
+    }
+    li {
+        text-align: center;
+        @include mediaMin($desktop) {
+            flex: 1;
+            text-align: right;
+        }
+        // border: 1px solid blue;
+    }
+    a {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        z-index: 10;
+        &:hover {
+            color: $brickred;
+        }
+        &.active {
+            color: $brickred;
         }
     }
 }

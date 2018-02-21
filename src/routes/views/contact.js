@@ -1,6 +1,8 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 
+const { GOOGLE_MAPS_API_KEY } = require('../../../config');
+
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
@@ -33,5 +35,8 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('contact');
+	locals.GOOGLE_MAPS_API_KEY = GOOGLE_MAPS_API_KEY;
+	console.log({GOOGLE_MAPS_API_KEY});
+
+	view.render('contact-us');
 };
