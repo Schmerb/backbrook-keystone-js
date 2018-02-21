@@ -8,40 +8,36 @@
 
 const { uluru, GOOGLE_MAPS_API_KEY } = require('../../../config');
 
-var mapsapi = require( 'google-maps-api' )(GOOGLE_MAPS_API_KEY);
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Init map 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 exports.initMap = () => {
-    mapsapi().then(maps => {
-        let map = new maps.Map(document.getElementById('map'), {
-            zoom: 16,
-            center: uluru,
-            styles: myMapStyles
-          });
-          let marker = new maps.Marker({
-            position: uluru,
-            map: map,
-            icon: {
-                url: 'assets/images/compressed/five-bricks.png'
-            }
-          });
-      
-          var center;
-          maps.event.addDomListener(map, 'idle', () => {
-              center = map.getCenter();
-          });
-          maps.event.addDomListener(window, 'resize', () => {
-              map.setCenter(center);
-          });
-      
-          var infowindow = new maps.InfoWindow();
-          maps.event.addDomListener(marker, 'click', () => {
-              infowindow.setContent('<div>YOOO</div>');
-              infowindow.open(map, this);
-          });
-    })
+    let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: uluru,
+        styles: myMapStyles
+      });
+    let marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+        icon: {
+            url: 'assets/images/compressed/five-bricks.png'
+        }
+    });
+
+    var center;
+    google.maps.event.addDomListener(map, 'idle', () => {
+        center = map.getCenter();
+    });
+    google.maps.event.addDomListener(window, 'resize', () => {
+        map.setCenter(center);
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    google.maps.event.addDomListener(marker, 'click', () => {
+        infowindow.setContent('<div>YOOO</div>');
+        infowindow.open(map, this);
+    });
 }
 
 let myMapStyles = [
