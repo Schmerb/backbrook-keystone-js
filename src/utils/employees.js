@@ -22,7 +22,7 @@ let employees = [
     {
         name: "Laura Harwood",
         jobTitle: "Director of BIM",
-        url: "/who-we-are/Laura"
+        url: "/who-we-are/laura"
     },
     {
         name: "Joe Acchione",

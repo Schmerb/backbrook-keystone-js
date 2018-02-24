@@ -1,0 +1,75 @@
+// // // // // // // // // //
+//
+//      Employees List
+//
+// // // // // // // // // //
+
+.who-we-are-page {
+
+    .employees-container {
+        @extend %default-transition;
+        position: relative;
+        z-index: 20;
+        &.text-container {
+            padding: 0;
+            max-width: 9999px;
+            p {
+                font-family: 'Cutive Mono', monospace;
+                text-align: left; // override who-we-are p-tags justified text
+            }
+        }
+        
+    }   
+}
+.employees {
+    @extend %flexbox;
+    @extend %default-transition;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 95%;
+    margin: 10px auto 50px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(black, 0.1);
+    @include mediaMin(400px) {
+        width: 400px;
+    }
+    @include mediaMin(700px) {
+        width: 700px;
+    }
+    @include mediaMin(900px) {
+        width: 900px;
+    }
+    @include mediaMin(1300px) {
+        width: 950px;
+    }
+    li {
+        width: 100%;
+        &:not(:last-of-type) {
+            border-bottom: 1px solid rgba(black, 0.1);
+        }
+        @include mediaMin(700px) {
+            width: 50%;
+            // gives border to first card in row
+            &:nth-of-type(2n + 1) {
+                border-right: 1px solid rgba(black, 0.1);
+            }
+            // removes border from bottom cards
+            &:nth-last-of-type(1), &:nth-last-of-type(2) {
+                border-bottom: none;
+            }
+        }
+        @include mediaMin(900px) {
+            width: 33.3%;
+            border-right: 1px solid rgba(black, 0.1);
+            &:nth-of-type(1),
+            &:nth-of-type(2) {
+                width: 50%;
+            }
+            // targets end card on each row, specific to # of employees
+            &:nth-last-of-type(3n) {
+                border-right: none;
+            }
+        }
+    }
+}

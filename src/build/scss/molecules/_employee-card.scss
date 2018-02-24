@@ -9,6 +9,7 @@
 }
 .employee-card {
     @extend %default-transition;
+    
     color: black;
     width: 100%;
     min-height: 300px;
@@ -16,7 +17,6 @@
     &:hover {
         color: $brickred;
         .img {
-            // border-radius: 0;
             filter: grayscale(0%);
         }
     }
@@ -25,12 +25,17 @@
 // Wraps the image
 // - - - - - - - - 
 .content {
+    @extend %default-transition;
     width: 150px;
     height: 150px;
     margin: 0 auto;
     @include mediaMin(700px) {
-        width: 100px;
-        height: 100px;
+        width: 180px;
+        height: 180px;
+    }
+    @include mediaMin(900px) {
+        width: 220px;
+        height: 220px;
     }
     .img {
         @include transitions(filter 0.2s ease-in-out);
@@ -40,7 +45,6 @@
         height: 100%;
         border-radius: 50%;
         filter: grayscale(100%);
-        // border: 1px solid black;
     }
 }
 // - - - - - - - -
