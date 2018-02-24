@@ -6,9 +6,12 @@
 
 .about-nav-container {
     position: relative;
-    font-size: 14px;
+    font-size: 16px;
     padding-top: 30px;
     padding-bottom: 20px;
+    @include mediaMin(700px) {
+        font-size: 18px;
+    }
     @include mediaMin($desktop + 200px) {
         float: left;
     }
@@ -49,6 +52,12 @@
     }
     li {
         text-align: center;
+        margin-bottom: 8px;
+        @include mediaMin($desktop) {
+            &:last-of-type {
+                margin-top: 8px;
+            }
+        }
         @include mediaMin($desktop + 200px) {
             flex: 1;
             text-align: right;
@@ -57,7 +66,6 @@
     a {
         display: inline-block;
         height: 30px;
-        line-height: 30px;
         z-index: 10;
         &:hover {
             color: $brickred;
