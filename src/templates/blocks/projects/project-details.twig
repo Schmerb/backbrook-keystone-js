@@ -14,5 +14,26 @@
         <dd>
             <p class="highlights">{{ project.highlights }}</p>
         </dd>
+        <dt>Type of Work</dt>
+        <dd>
+            {% set category = project.category %}
+            <ul class="project-categories-list">
+                {% if category.Commercial == true %}
+                    <li><a href="/projects/categories/commercial">Commercial</a></li>
+                {% endif %}
+                {% if category.Education == true %}
+                    <li><a href="/projects/categories/education">Education</a></li>
+                {% endif %}
+                {% if category.Industrial == true %}
+                    <li><a href="/projects/categories/industrial">Industrial</a></li>
+                {% endif %}
+                {% if category.Rainscreen == true %}
+                    <li><a href="/projects/categories/rainscreen">Rainscreen</a></li>
+                {% endif %}
+                {% if category.Restoration == true %}
+                    <li><a href="/projects/categories/restoration">Restoration</a></li>
+                {% endif %}
+            </ul>
+        </dd>
     </dl>
 </div>

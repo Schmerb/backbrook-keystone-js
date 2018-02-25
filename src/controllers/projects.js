@@ -92,7 +92,7 @@ exports.getProject = (req, res) => {
             
             // remove current project from list
             projects = projects.filter(proj => proj.name !== currentProject.name); 
-            
+
             // expose variables in local view
             locals.project          = currentProject; // expose project obj to view
             locals.project_list     = projects; // expose projects with matching category types to view

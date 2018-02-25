@@ -64,3 +64,24 @@
         }
     }
 }
+.project-categories-list {
+    li {
+        margin-right: 8px;
+        &.first {
+            &::after {
+                content: ' ~ ';
+            }
+        }
+        &.middle {
+            &::before,
+            &::after {
+                content: ' ~ ';
+            }
+        }
+        a {
+            &:hover, &:focus {
+                color: $brickred;
+            }
+        }
+    }
+}
