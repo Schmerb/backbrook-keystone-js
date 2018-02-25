@@ -108,18 +108,12 @@ exports.getProject = (req, res) => {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function getPrevNextProjects(projects, currentProject, category) {
     let index = 0;
-    for(let i=0; i<projects.lengthl; i++) {
+    for(let i=0; i<projects.length; i++) {
         if(projects[i].name === currentProject.name) {
             index = i;
             break;
         }
     }
-
-    projects.forEach((proj, i) => {
-        console.log(proj.name);
-        console.log('\n\n' + i + '\n\n');
-    });
-    console.log(projects[index + 1]);
 
     let nextProj = projects[index + 1] || projects[0]; // if end is met, return to the beginning
     let prevProj = projects[index - 1] || projects[projects.length - 1]; // if first member, return last member
