@@ -11,20 +11,24 @@ exports.getCategoryProjects = (req, res) => {
 
     let { categoryType } = req.params;
 
-    let Project  = keystone.list('Project').model;
-    let Category = keystone.list('Category').model;
+    let Project  = keystone.list('Project').model,
+        Category = keystone.list('Category').model;
+
+    let categories, 
+        categoryObj;
     Category
         .find()
+        .sort({'categoryType': 1}) // sort alphabetically
         .exec()
-        .then(categories => {
-            locals.category_list = categories; // expose categories
+        .then(_categories => {
+            categories = _categories; 
             return Category
                 .findOne()
                 .where('slug', categoryType)
                 .exec()
         })
-        .then(categoryObj => {
-            locals.categoryObj = categoryObj; // expose category object
+        .then(_categoryObj => {
+            categoryObj = _categoryObj; 
             if(categoryType === 'all') {
                 return Project
                     .find()
@@ -36,7 +40,10 @@ exports.getCategoryProjects = (req, res) => {
                 .exec();
         })
         .then(projects => {
-            locals.project_list = projects; // expose projects
+            // expose vars to local view
+            locals.category_list = categories;
+            locals.categoryObj   = categoryObj;
+            locals.project_list  = projects; // expose projects
 
             // Render category VIEW
             view.render('category');
@@ -66,38 +73,30 @@ exports.getProject = (req, res) => {
     }
 
     let Project = keystone.list('Project').model;
-    let currentProject,
-        allCategories = [];
+    let currentProject;
     Project
         .findOne()
         .where('name', projectName)
         .exec()
         .then(project => {
-            locals.project = project; // expose project obj to view
             currentProject = project;
-            let { category } = project;
-            let queries = [];
-            let categoryTypes = ['Rainscreen', 'Restoration', 'Industrial', 'Education', 'Commercial'];
-            categoryTypes.forEach(type => {
-                if(category[type]) {
-                    let key = `category.${type}`;
-                    queries.push({ [key]: true });
-                    allCategories.push(type);
-                }
-            })
+            let query = `category.${category.slice(0,1).toUpperCase()}${category.slice(1)}`;
             return Project
-                .find({ $or: queries }) // returns all projects with matching categories
-                .exec()
+            .find()
+            .where(query, true)
+            .exec()
         })
         .then(projects => {
             // calculate next/prev projects to pass into view
-            const { nextProj, prevProj } = getPrevNextProjects(projects, currentProject);
-
+            const { nextProj, prevProj } = getPrevNextProjects(projects, currentProject, category);
+            
             // remove current project from list
             projects = projects.filter(proj => proj.name !== currentProject.name); 
-
-            locals.project_list = projects; // expose projects with matching category types to view
-            locals.project_controls = { nextProj, prevProj, allCategories };
+            
+            // expose variables in local view
+            locals.project          = currentProject; // expose project obj to view
+            locals.project_list     = projects; // expose projects with matching category types to view
+            locals.project_controls = { nextProj, prevProj };
             // Render projects VIEW
             view.render('project');
         })
@@ -107,7 +106,7 @@ exports.getProject = (req, res) => {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Returns urls for projects before and after current project
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function getPrevNextProjects(projects, currentProject) {
+function getPrevNextProjects(projects, currentProject, category) {
     let index = 0;
     for(let i=0; i<projects.lengthl; i++) {
         if(projects[i].name === currentProject.name) {
@@ -115,15 +114,19 @@ function getPrevNextProjects(projects, currentProject) {
             break;
         }
     }
+
+    projects.forEach((proj, i) => {
+        console.log(proj.name);
+        console.log('\n\n' + i + '\n\n');
+    });
+    console.log(projects[index + 1]);
+
     let nextProj = projects[index + 1] || projects[0]; // if end is met, return to the beginning
     let prevProj = projects[index - 1] || projects[projects.length - 1]; // if first member, return last member
     // infinite carousel 
-    nextProj = nextProj.getURL() // link to next project page
-    prevProj = prevProj.getURL() // link to previous project page
-    currentProject: currentProject.getURL()
+    nextProj = nextProj.getURL() + '?category=' + category // link to next project page
+    prevProj = prevProj.getURL() + '?category=' + category  // link to previous project page
 
-    // console.log({currentProject, nextProj, prevProj});
-    // console.log('index: ', index);
     return { nextProj, prevProj };
 }
 

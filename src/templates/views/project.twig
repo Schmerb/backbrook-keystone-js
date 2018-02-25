@@ -11,7 +11,11 @@
         <div class="project-main">
             
             <!-- BREADCRUMB NAV -->
-            {% include '../blocks/projects/breadcrumb-nav.twig' with { location: 'project', project: project, category: category }%}
+            {% include '../blocks/projects/breadcrumb-nav.twig' with { 
+                location: 'project', 
+                project: project, 
+                category: category 
+            }%}
 
             {% include '../blocks/projects/control-buttons.twig', with { project_controls: project_controls } %}
 
@@ -22,7 +26,11 @@
             <!-- { include '../blocks/projects/project-quote', with {project: project} }  -->
 
             <!-- PROJECTS SLIDER -->
-            {% include '../blocks/projects/projects-slider.twig', with { currentProject: project, project_list: project_list } %} 
+            {% include '../blocks/projects/projects-slider.twig', with { 
+                currentProject: project, 
+                project_list: project_list, 
+                category: category  
+            } %} 
 
         </div>
     </section>
