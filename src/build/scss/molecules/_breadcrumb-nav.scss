@@ -1,0 +1,42 @@
+// // // // // // // // // //
+//
+//   Breadcrumb Nav
+//
+// // // // // // // // // //
+
+
+.breadcrumb-nav {
+    display: inline-block;
+    color: rgba($brickred, 0.7);
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    @include mediaMin($tablet) {
+        font-size: 16px;
+    }
+    @include mediaMin($desktop) {
+        font-size: 18px;
+    }
+    &:hover, &:focus {
+        li {
+            color: grey;
+        }
+    }
+
+    li {
+        &:not(:last-of-type) {
+            &::after {
+                content: '/';
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        a {
+            &:hover, &:focus {
+                @extend %default-transition;
+                color: $brickred;
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-<a class="project-card-anchor" href="/projects/{{ project.name|replace({' ': '-'}) }}">
+<a class="project-card-anchor" href="/projects/{{ project.name|replace({' ': '-'}) }}?category={{ categoryObj.slug }}">
     <div class="project-card">
         <div class="proj-img" style="background-image: url('{{ project.image.url }}')"></div>
         <dl class="details">

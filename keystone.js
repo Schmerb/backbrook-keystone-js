@@ -53,8 +53,12 @@ keystone.set('cookie secret',  process.env.SECRET);
 keystone.set('routes', require('./src/routes'));
 
 
+keystone.set('email transport', 'mailgun');
+keystone.set('mailgun api key', process.env.MAILGUN_API_KEY);
+keystone.set('mailgun domain', 'example.com');
+
 // Configure the navigation bar in Keystone's Admin UI
-keystone.set('nav', {
+keystone.set('nav', { 
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	ns: 'ns',

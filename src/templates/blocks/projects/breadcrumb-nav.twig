@@ -1,0 +1,23 @@
+<nav class="breadcrumb-nav">
+    <ul>
+        <li><a href="/projects">Categories</a></li>
+        <li>
+            {% if location == 'category' %}
+                <a href="/projects/categories/{{ categoryObj.slug }}">
+                    {{ categoryObj.categoryType }}
+                </a>
+            {% elseif location == 'project' %}
+                <a href="/projects/categories/{{ category }}">
+                    {{ category == 'all' ? 'All Projects' : category|capitalize }}
+                </a>
+            {% endif %}
+        </li>
+        {% if location == 'project' %}
+            <li>
+                <a href="/projects/{{ project.name|replace({' ': '-'}) }}?category={{ category.categoryType }}">
+                    {{ project.name }}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

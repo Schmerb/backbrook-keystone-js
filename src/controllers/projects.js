@@ -54,6 +54,9 @@ exports.getProject = (req, res) => {
     locals.section = 'projects';
 
     let { projectName } = req.params;
+    let { category } = req.query;
+
+    locals.category = category;
 
     let name = projectName;
     if(name !== 'Alcatel-Lucent' 
@@ -119,8 +122,8 @@ function getPrevNextProjects(projects, currentProject) {
     prevProj = prevProj.getURL() // link to previous project page
     currentProject: currentProject.getURL()
 
-    console.log({currentProject, nextProj, prevProj});
-    console.log('index: ', index);
+    // console.log({currentProject, nextProj, prevProj});
+    // console.log('index: ', index);
     return { nextProj, prevProj };
 }
 
