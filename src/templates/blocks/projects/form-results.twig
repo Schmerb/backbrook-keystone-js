@@ -1,0 +1,15 @@
+<!-- -- -- -- -- --
+    Form Results 
+<!-- -- -- -- -- -->
+
+<ul class="category-options">
+    {% for category in category_list %}
+        <li>
+            <a href="{{ category.url }}">
+                {{ category.categoryType }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<ul class="search-results"></ul>
+    

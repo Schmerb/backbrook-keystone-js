@@ -1,9 +1,9 @@
-var keystone = require('keystone');
+let keystone = require('keystone');
 
 exports = module.exports = (req, res) => {
 
-    var view   = new keystone.View(req, res);
-    var locals = res.locals;
+    let view   = new keystone.View(req, res);
+    let locals = res.locals;
 
     locals.section = 'trust-respect';
 

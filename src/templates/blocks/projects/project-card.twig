@@ -1,0 +1,10 @@
+<a class="project-card-anchor" href="{{ project.name|replace({' ': '-'}) }}">
+    <div class="project-card">
+        <div class="proj-img" style="background-image: url('{{ project.image.url }}')"></div>
+        <dl class="details">
+            <dt class="project-name">{{ project.name }}</dt>
+            <dd class="project-client">{{ project.client }}</dd>
+            <dd class="project-completion-date">Completed: {{ project.completed_date|date("Y") }}</dd>
+        </dl>
+    </div>
+</a>

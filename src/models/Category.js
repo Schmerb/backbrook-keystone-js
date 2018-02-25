@@ -1,16 +1,10 @@
 let keystone = require('keystone');
 
-
 let Types = keystone.Field.Types;
-let Employee = new keystone.List('Employee');
+let Category = new keystone.List('Category');
 
-Employee.add({
-    name: { 
-        type: Types.Text, 
-        initial: true, 
-        required: true 
-    },
-    jobTitle: {
+Category.add({
+    categoryType: {
         type: Types.Text,
         initial: true,
         required: true
@@ -20,11 +14,21 @@ Employee.add({
         initial: true,
         required: true
     },
-    imgUrl: {
+    slug: {
+        type: Types.Text,
+        initial: true,
+        required: true
+    },
+    image: {
+        type: Types.Text,
+        initial: true,
+        required: true
+    },
+    description: {
         type: Types.Text,
         initial: true,
         required: true
     }
 });
 
-Employee.register();
+Category.register();

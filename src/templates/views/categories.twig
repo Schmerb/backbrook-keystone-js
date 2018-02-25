@@ -1,0 +1,14 @@
+{% extends "../layouts/default.twig" %}
+
+{% block content %}
+    <section id="projects" class="projects-page">
+        <h2 class="projects-header">Projects</h2>
+        <ul class="category-list card-list">
+            {% for category in category_list %}
+                <li>
+                    {% include '../blocks/projects/category.twig', with {category: category} %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %} 

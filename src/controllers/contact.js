@@ -1,12 +1,12 @@
-var keystone = require('keystone');
-var Enquiry = keystone.list('Enquiry');
+let keystone = require('keystone');
+let Enquiry = keystone.list('Enquiry');
 
-const { GOOGLE_MAPS_API_KEY } = require('../../../config');
+const { GOOGLE_MAPS_API_KEY } = require('../../config');
 
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+	let view = new keystone.View(req, res);
+	let locals = res.locals;
 
 	// Set locals
 	// locals.section = 'contact';
@@ -18,8 +18,8 @@ exports = module.exports = function (req, res) {
 	// // On POST requests, add the Enquiry item to the database
 	// view.on('post', { action: 'contact' }, function (next) {
 
-	// 	var newEnquiry = new Enquiry.model();
-	// 	var updater = newEnquiry.getUpdateHandler(req);
+	// 	let newEnquiry = new Enquiry.model();
+	// 	let updater = newEnquiry.getUpdateHandler(req);
 
 	// 	updater.process(req.body, {
 	// 		flashErrors: true,

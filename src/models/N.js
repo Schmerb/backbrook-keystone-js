@@ -1,11 +1,11 @@
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
+let keystone = require('keystone');
+let Types = keystone.Field.Types;
 
 /**
  * N Model
  * ==========
  */
-var N = new keystone.List('N');
+let N = new keystone.List('N');
 
 N.add({
 	name: { type: Types.Name, required: true, index: true },

@@ -18,16 +18,16 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-var keystone 	 = require('keystone');
-var middleware 	 = require('./middleware');
-var importRoutes = keystone.importer(__dirname);
+const keystone 	   = require('keystone');
+const middleware   = require('./middleware');
+const importRoutes = keystone.importer(__dirname);
 
-
-var apiHandlers = require('./api/project');
+let apiHandlers = require('./api/project');
 // Import Route Controllers
-var routes = {
-	views: importRoutes('./views'),
+let routes = {
+	views: importRoutes('../controllers/'),
 };
+
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -44,18 +44,19 @@ exports = module.exports = function (app) {
 	app.get('/about-us/bonding',    routes.views['about-us']);
 	app.get('/about-us/:employee',  routes.views['about-us']);
 
-	
+	app.get('/bim', routes.views.bim);
 
-	app.get('/bim', 	 	  routes.views.bim);
-	app.get('/projects', 	  routes.views.project);
+	app.get('/projects', routes.views.categories);
+	app.get('/projects/categories/:categoryType', routes.views.projects.getCategoryProjects);
+	app.get('/projects/:projectName', routes.views.projects.getProject);
+
 	app.get('/trust-respect', routes.views['trust-respect']);
-	app.get('/contact-us',	  routes.views.contact);
+
+	app.get('/contact-us', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 	// API Routes
 	app.get('/api/project', apiHandlers.getProjects);
-
-
 };

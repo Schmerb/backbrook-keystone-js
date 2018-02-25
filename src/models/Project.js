@@ -1,9 +1,7 @@
-var keystone = require('keystone');
+const keystone = require('keystone');
 
-
-var Types = keystone.Field.Types;
-var Project = new keystone.List('Project');
-
+let Types = keystone.Field.Types;
+let Project = new keystone.List('Project');
 
 Project.add({
     name: { 
@@ -37,6 +35,14 @@ Project.add({
         Industrial:  { type: Types.Boolean, initial: true },
         Restoration: { type: Types.Boolean, initial: true },
         Rainscreen:  { type: Types.Boolean, initial: true }
+    },
+    image: {
+        type: Types.CloudinaryImage, 
+        select : true,
+        width: 400,
+        height: 300,
+        initial: true,
+        required: true
     },
     completed_date: {
         type: Types.Date, 

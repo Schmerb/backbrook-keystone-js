@@ -2,14 +2,14 @@ const keystone  = require('keystone');
 
 exports = module.exports = (req, res) => {
     
-    var view   = new keystone.View(req, res);
-    var locals = res.locals;
-    var url = req.originalUrl;
+    let view   = new keystone.View(req, res);
+    let locals = res.locals;
+    let url = req.originalUrl;
 
     locals.section = url;
     
     if(url === "/about-us/meet-our-team") {
-        var Employee = keystone.list('Employee').model;
+        let Employee = keystone.list('Employee').model;
         Employee.find().exec((err, data) => {
             locals.employees = data;
             view.render('about-us');

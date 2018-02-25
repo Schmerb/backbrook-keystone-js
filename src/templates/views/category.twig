@@ -1,0 +1,42 @@
+{% extends "../layouts/default.twig" %}
+
+{% block content %}
+    <section id="projects" class="projects-page">
+      
+        <div class="category-banner proj-cate-banner" style="background-image: url('{{ categoryObj.image }}');">
+            <div class="category-title-container title-container">
+                <h2 class="category-header proj-cate-header">{{ categoryObj.categoryType }}</h2>
+                <p class="category-description">{{ categoryObj.description }}</p>
+            </div>
+        </div>
+        
+        <div class="category-main">
+            <!-- -- -- -- -- --
+            FORM
+            <!-- -- -- -- -- -->
+            <div class="category-form-wrap">
+                {% include '../blocks/projects/category-form.twig' %}
+            </div>
+            
+            <!-- -- -- -- -- --
+            RESULTS
+            <!-- -- -- -- -- -->
+            <div class="form-results-container">
+                {% include '../blocks/projects/form-results.twig', with {category_list: category_list} %}
+            </div>
+            
+            <!-- -- -- -- -- --
+            PROJECT LIST
+            <!-- -- -- -- -- -->
+            <ul class="project-list card-list">
+                {% for project in project_list %}
+                    <li>
+                        {% include '../blocks/projects/project-card.twig', with {project: project} %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+            
+                        
+    </section>
+{% endblock %} 
