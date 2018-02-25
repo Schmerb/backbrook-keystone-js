@@ -1,17 +1,38 @@
 {% extends "../layouts/default.twig" %}
 
 {% block content %}
-    <div class="container">
-        {% for project in project_list %}
-            <dl> 
-                <dt>{{ project.name }}</dt>
-                <dd>{{ project.location }}</dd>
-                <dd>{{ project.client }}</dd>
-                <dd>{{ project.value }}</dd>
-                <dd>{{ project.highlights }}</dd>
-                <dd>{{ project.category }}</dd>
-                <dd>{{ project.completed_date|date('Y') }}</dd>  
-            </dl>
-        {% endfor %}
-    </div>
+    <section id="projects" class="projects-page project-detail-page">
+        <div class="proj-banner proj-cate-banner" style="background-image: url('{{ project.image }}');">
+            <div class="proj-title-container title-container">
+                <h2 class="proj-header proj-cate-header">{{ project.name }}</h2>
+            </div>
+        </div>
+
+        <div class="project-main">
+            
+            {% include '../blocks/control-buttons' %}
+
+            <!-- PROJECT DETAILS -->
+            {% include '../blocks/project-details', with {project: project} %} 
+
+            <!-- PROJECT QUOTE -->
+            <!-- { include '../blocks/project-quote', with {project: project} }  -->
+
+            <!-- PROJECTS SLIDER -->
+            {% include '../blocks/projects-slider', with {project: project, projects: projects} %} 
+
+        </div>
+    </section>
 {% endblock %} 
+
+
+
+<dl> 
+    <dt>{{ project.name }}</dt>
+    <dd>{{ project.location }}</dd>
+    <dd>{{ project.client }}</dd>
+    <dd>{{ project.value }}</dd>
+    <dd>{{ project.highlights }}</dd>
+    <dd>{{ project.category }}</dd>
+    <dd>{{ project.completed_date|date('Y') }}</dd>  
+</dl>

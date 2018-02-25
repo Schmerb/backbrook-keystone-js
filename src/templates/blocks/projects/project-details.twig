@@ -1,0 +1,18 @@
+<div class="details">
+    <dl>
+        <dt>Project</dt>
+        <dd>{{ project.name }}</dd>
+
+        <dt>Client</dt>
+        <dd>{{ project.client }}</dd>
+
+        <dt>Completion Date</dt>
+        <dd>{{ project.completed_date|date('Y') }}</dd>
+    </dl>
+    <dl>
+        <dt>Highlights</dt>
+        <dd>
+            <p class="highlights">{{ project.highlight }}</p>
+        </dd>
+    </dl>
+</div>

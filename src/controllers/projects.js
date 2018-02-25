@@ -54,7 +54,9 @@ exports.getProject = (req, res) => {
 
     locals.section = 'projects';
 
-    let { categoryType, projectName } = req.params;
+    let { projectName } = req.params;
+
+    projectName = projectName.replace(/-/g, ' ');
 
     let Project = keystone.list('Project').model;
     Project
@@ -65,6 +67,9 @@ exports.getProject = (req, res) => {
 
             locals.project = project;
         
+            // TODO: Calculate next/prev projects to pass into view
+
+
             // Render projects VIEW
             view.render('projects');
         })

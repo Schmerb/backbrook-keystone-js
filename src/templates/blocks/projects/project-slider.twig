@@ -1,0 +1,16 @@
+<div class="project-slider-wrap">
+    <h3 class="slider-title">More {{ project.industry }} projects</h3>
+    <!-- <div class="swipe-msg">Swipe to view</div> -->
+    <svg class="icon icon-swipe-icon"><use xlink:href="#icon-swipe-icon"></use></svg>
+    <div class="project-slider">
+        {% for project in project_list if project.name !== project.name %} <!-- Removes the current project from list  -->
+            <div class="project-slide" style="background-image: url('{{ project.image.url }}');">
+                <a class="slide-inner-wrap" href="/projects/{{ project.name|replace({' ': '-'}) }}">
+                    <div>
+                        <h2>{{ project.name }}</h2>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>

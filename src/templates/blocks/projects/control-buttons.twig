@@ -1,0 +1,29 @@
+<div class="buttons">
+    <div class="back-btn-wrap">
+        <a class="" href="/projects" data-category="{{ categoryType }}">
+            <svg class="icon icon-back-arrow"><use xlink:href="#icon-back-arrow"></use></svg>
+            Back to categories
+        </a>
+    </div>
+    <div class="back-btn-wrap">
+        <a class="back-btn-anchor" href="/" data-category="{{ categoryType }}">
+            <svg class="icon icon-back-arrow"><use xlink:href="#icon-back-arrow"></use></svg>
+            Back to {{ categoryType }}
+        </a>
+    </div>
+
+    <div class="control-arrows">
+        <div>
+            <a class="next-proj-anchor" href="{{ nextProj }}">
+                <span>next</span>
+                <svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>
+            </a>
+        </div>
+        <div>
+            <a class="prev-proj-anchor" href="{{ prevProj }}">
+                <span>prev</span>
+                <svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>
+            </a>
+        </div>
+    </div>
+</div>
