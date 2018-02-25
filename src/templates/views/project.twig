@@ -2,7 +2,7 @@
 
 {% block content %}
     <section id="projects" class="projects-page project-detail-page">
-        <div class="proj-banner proj-cate-banner" style="background-image: url('{{ project.image }}');">
+        <div class="proj-banner proj-cate-banner" style="background-image: url('{{ project.image.url }}');">
             <div class="proj-title-container title-container">
                 <h2 class="proj-header proj-cate-header">{{ project.name }}</h2>
             </div>
@@ -10,16 +10,16 @@
 
         <div class="project-main">
             
-            {% include '../blocks/control-buttons' %}
+            {% include '../blocks/projects/control-buttons.twig', with { project_controls: project_controls } %}
 
             <!-- PROJECT DETAILS -->
-            {% include '../blocks/project-details', with {project: project} %} 
+            {% include '../blocks/projects/project-details.twig', with { project: project } %} 
 
             <!-- PROJECT QUOTE -->
-            <!-- { include '../blocks/project-quote', with {project: project} }  -->
+            <!-- { include '../blocks/projects/project-quote', with {project: project} }  -->
 
             <!-- PROJECTS SLIDER -->
-            {% include '../blocks/projects-slider', with {project: project, projects: projects} %} 
+            {% include '../blocks/projects/projects-slider.twig', with { currentProject: project, project_list: project_list } %} 
 
         </div>
     </section>

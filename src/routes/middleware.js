@@ -34,7 +34,7 @@ exports.initLocals = function (req, res, next) {
 		] },
 		{ label: 'PROJECTS', key: 'projects', href: '/projects', pages: [
 			{ label: 'By Category', subkey: 'by-category', href: '/projects' },
-			{ label: 'View All', 	subkey: 'view-all',    href: '/projects/all' }
+			{ label: 'View All', 	subkey: 'view-all',    href: '/projects/categories/all' }
 		] },
 		{ label: 'TRUST & RESPECT', key: 'trust-respect', href: '/trust-respect', pages: [
 			{ label: 'Clients',  	 subkey: 'clients',  	 href: '/trust-respect' },

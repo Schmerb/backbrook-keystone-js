@@ -52,4 +52,9 @@ Project.add({
     }
 });
 
+// return correct url format for project
+Project.schema.methods.getURL = function() {
+    return `/projects/${this.name.replace(/ /g, '-')}`;
+}
+
 Project.register();
