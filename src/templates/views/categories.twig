@@ -3,6 +3,17 @@
 {% block content %}
     <section id="projects" class="projects-page">
         <h2 class="projects-header">Projects</h2>
+        
+         <!-- FORM -->
+         <div class="category-form-wrap">
+            {% include '../blocks/projects/category-form.twig' %}
+        </div>
+        
+        <!-- RESULTS -->
+        <div class="form-results-container">
+            {% include '../blocks/projects/form-results.twig', with { category_list: category_list } %}
+        </div>
+        
         <ul class="category-list card-list">
             {% for category in category_list %}
                 <li>

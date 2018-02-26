@@ -4,12 +4,14 @@
 
 <form class="category-form">
 
-    <div class="category-btn-wrap">
-        <button class="category-btn" type="button">
-            By Category
-            <svg class="icon icon-down-carrot"><use xlink:href="#icon-down-carrot"></use></svg>
-        </button>
-    </div>
+    {% if section != 'categories' %}
+        <div class="category-btn-wrap">
+            <button class="category-btn" type="button">
+                By Category
+                <svg class="icon icon-down-carrot"><use xlink:href="#icon-down-carrot"></use></svg>
+            </button>
+        </div>
+    {% endif %}
 
     <div class="input-wrap">
         <label for="proj-search-bar" class="aria-hidden" aria-hidden="false">Search for a project</label>
