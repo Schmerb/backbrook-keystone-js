@@ -3,13 +3,13 @@ var Project  = keystone.list('Project').model;
 
 var handlers = {
     getProjects: (req, res) => {
-        Project.find().exec((err, data) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send('DB Error');
-            }
-            res.status(200).send(data);
-        });
+        Project
+            .find()
+            .exec()
+            .then(projects => {
+                res.status(200).json({ projects: projects });
+            })
+            .catch(err => res.status(500).json({message: 'Internal server error', err}));
     }
 }
 module.exports = handlers;

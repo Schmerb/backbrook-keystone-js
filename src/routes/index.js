@@ -67,5 +67,5 @@ exports = module.exports = function (app) {
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 	// API Routes
-	app.get('/api/project', apiHandlers.getProjects);
+	app.get('/api/projects/all', apiHandlers.getProjects);
 };

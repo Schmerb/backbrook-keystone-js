@@ -10,6 +10,7 @@ exports.getCategoryProjects = (req, res) => {
     locals.section = 'projects';
 
     let { categoryType } = req.params;
+    console.log({categoryType});
 
     let Project  = keystone.list('Project').model,
         Category = keystone.list('Category').model;
@@ -82,11 +83,16 @@ exports.getProject = (req, res) => {
         .exec()
         .then(project => {
             currentProject = project;
+            if(category === 'all') {
+                return Project
+                    .find()
+                    .exec()
+            }
             let query = `category.${category.slice(0,1).toUpperCase()}${category.slice(1)}`;
             return Project
-            .find()
-            .where(query, true)
-            .exec()
+                .find()
+                .where(query, true)
+                .exec()
         })
         .then(projects => {
             // calculate next/prev projects to pass into view

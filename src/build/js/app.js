@@ -80,11 +80,18 @@ function showResults(query) {
     }
     hideSearchIcon();
     const { projects } = state;
+
+    let pathname = window.location.pathname;
+    let root = '/projects/categories/';
+    let category = pathname.slice(root.length);
+    if(category === 'all') {
+        // category = '';
+    }
     let results = findMatches(projects, 'name', query)
                   .map(result => {
                     return `
                         <li>
-                            <a href="${result.url}">${result.name}</a>
+                            <a href="/projects/${result.name.replace(/ /g, '-')}?category=${category}">${result.name}</a>
                         </li>
                     `;
                 });
@@ -116,12 +123,12 @@ function showResults(query) {
 
 function getAllProjects() {
     $.ajax({
-        url: '/projects/all/json',
+        url: '/api/projects/all',
         type: 'GET',
         dataType: 'json',
         success: res => {
             state.projects = res.projects;
-            // console.log(state.projects);
+            console.log(state.projects);
         },
         error: (jqXHR, textStatus, err) => {
             console.log(err);
@@ -329,7 +336,7 @@ function init() {
     }
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
-    // getAllProjects();
+    getAllProjects();
 }
 
 
