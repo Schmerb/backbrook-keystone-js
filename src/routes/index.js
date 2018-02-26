@@ -42,6 +42,8 @@ exports = module.exports = function (app) {
 	app.get('/about-us/meet-our-team', routes.views['about-us'].getTeam);
 	app.get('/about-us/safety',        routes.views['about-us']);
 	app.get('/about-us/bonding',       routes.views['about-us']);
+	app.get('/about-us/genesis-of-the-backbrook-name', routes.views['about-us']);
+	app.get('/about-us/jesus-was-a-stone-mason', routes.views['about-us']);
 	app.get('/about-us/:employee',     routes.views['about-us']);
 
 	app.get('/bim', routes.views.bim);
