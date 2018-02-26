@@ -18,18 +18,15 @@ exports.initMap = () => {
         styles: myMapStyles
       });
 
-    let x = window.innerWidth >= 600 ? 120 : 20;
-    let marker = new google.maps.Marker({
+    // let x = window.innerWidth >= 600 ? 10 : -20;
+    let marker = new MarkerWithLabel({
         position: uluru,
         map: map,
-        label: {
-            text:  "Backbrook Masonry Headquarters",
-            color: "#aa1019",
-            fontSize: "18px",
-            width: "10px"
-        },
+        labelContent: "Backbrook Masonry Headquarters",
+        labelAnchor: new google.maps.Point(-30, 10),
+        labelClass: "google-maps-bbm-marker", // your desired CSS class
+        labelInBackground: true,
         icon: {
-            labelOrigin: new google.maps.Point(x, 30),
             color: "red",
             url: 'assets/images/compressed/five-bricks.png'
         }
@@ -40,15 +37,11 @@ exports.initMap = () => {
         center = map.getCenter();
     });
     google.maps.event.addDomListener(window, 'resize', () => {
-        let x = window.innerWidth >= 600 ? 120 : 20;
+        // let x = window.innerWidth >= 600 ? 120 : 40;
         map.setCenter(center);
-        marker.setOptions({
-            icon: {
-                labelOrigin: new google.maps.Point(x, 30),
-                color: "red",
-                url: 'assets/images/compressed/five-bricks.png'
-            }
-        });
+        // marker.setOptions({
+        //     labelAnchor: new google.maps.Point(x, -20),
+        // });
     });
 
     var infowindow = new google.maps.InfoWindow();

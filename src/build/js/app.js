@@ -105,7 +105,7 @@ function showResults(query) {
     if(len > 0) {
         // At least one match found
         $(SEARCH_RESULTS).html(results.join(''));
-        $(RESULTS_CONTAINER).css({height: `${len * 35 + 20}px`});
+        $(RESULTS_CONTAINER).css({height: `${len * 36 + 45}px`});
         // $(RESULTS_CONTAINER).height(`${len * 45}px`);
         return;
     }

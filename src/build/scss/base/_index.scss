@@ -46,10 +46,10 @@ body {
         padding-bottom: 1300px;
     }
     @include mediaMin($desktop) {
-        padding-bottom: 1050px;
+        padding-bottom: 1080px;
     }
     @include mediaMin(1400px) {
-        padding-bottom: 1100px;
+        padding-bottom: 1150px;
     }
 
     // 404 Error page @overrides
