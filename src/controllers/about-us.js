@@ -8,15 +8,26 @@ exports = module.exports = (req, res) => {
 
     locals.section = url;
     
-    if(url === "/about-us/meet-our-team") {
-        let Employee = keystone.list('Employee').model;
-        Employee.find().exec((err, data) => {
-            locals.employees = data;
-            view.render('about-us');
-        });
-    } else {
-        view.render('about-us');
-    }
+    view.render('about-us');
 };
+
+exports.getTeam = (req, res) => {
+    let view   = new keystone.View(req, res);
+    let locals = res.locals;
+    let url = req.originalUrl;
+    locals.section = url;
+
+    let Employee = keystone.list('Employee').model;
+
+    Employee
+        .find()
+        .sort({'orderNum': 1})
+        .exec()
+        .then(employees => {
+            locals.employees = employees;
+            view.render('about-us');
+        })
+        .catch(err => res.status(500).json({message: 'Internal server error', err}));
+}
 
 

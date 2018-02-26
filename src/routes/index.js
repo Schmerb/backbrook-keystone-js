@@ -38,11 +38,11 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 
-	app.get('/about-us', 	  	    routes.views['about-us']);
-	app.get('/about-us/who-we-are', routes.views['about-us']);
-	app.get('/about-us/safety',     routes.views['about-us']);
-	app.get('/about-us/bonding',    routes.views['about-us']);
-	app.get('/about-us/:employee',  routes.views['about-us']);
+	app.get('/about-us', 	  	       routes.views['about-us']);
+	app.get('/about-us/meet-our-team', routes.views['about-us'].getTeam);
+	app.get('/about-us/safety',        routes.views['about-us']);
+	app.get('/about-us/bonding',       routes.views['about-us']);
+	app.get('/about-us/:employee',     routes.views['about-us']);
 
 	app.get('/bim', routes.views.bim);
 

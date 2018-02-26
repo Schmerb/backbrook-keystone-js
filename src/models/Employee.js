@@ -24,6 +24,12 @@ Employee.add({
         type: Types.Text,
         initial: true,
         required: true
+    },
+    orderNum: {
+        type: Types.Number,
+        initial: true,
+        required: true,
+        note: 'Place in employee list, 0 is the first position.'
     }
 });
 
