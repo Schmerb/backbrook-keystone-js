@@ -5,11 +5,11 @@
   "dependencies": {
     "async": "2.1.4",
     "dotenv": "4.0.0",
+    "format-currency": "^1.0.0",
     "google-maps-api": "^2.0.1",
     "keystone": "^4.0.0-beta.5",
     "keystone-email": "1.0.5",
     "lodash": "^4.13.1",
-    "numeral": "^2.0.6",
     "object.values": "^1.0.4",
     "string.prototype.includes": "^1.0.0",
     "string.prototype.startswith": "^0.2.0",

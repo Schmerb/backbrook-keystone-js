@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const formatCurrency = require('format-currency');
 
 // - - - - - - - - - - - - - - - - - - - - - -
 // Gets all projects for a specific category
@@ -103,6 +104,7 @@ exports.getProject = (req, res) => {
 
             // expose variables in local view
             locals.project          = currentProject; // expose project obj to view
+            locals.formattedValue   = currentProject.getValue(); // exposes formatted value of project in USD
             locals.project_list     = projects; // expose projects with matching category types to view
             locals.project_controls = { nextProj, prevProj };
             // Render projects VIEW

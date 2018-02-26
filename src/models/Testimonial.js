@@ -11,7 +11,8 @@ Testimonial.add({
         required: true
     },
     quote: {
-        type: Types.Text,
+        type: Types.Textarea,
+        height: 600,
         initial: true,
         required: true
     },

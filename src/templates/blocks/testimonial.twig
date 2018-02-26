@@ -1,11 +1,7 @@
 <div class="testimonial">
     <blockquote>
         <div>
-            {% set paragraphs = testimonial.quote|split('\n') %}
-            {% set len = paragraphs|length %}
-            {% for paragraph in paragraphs %}
-                {{ paragraph }}
-            {% endfor %}
+            {{ testimonial.quote|nl2br }}
         </div>
         <footer>
             <cite>

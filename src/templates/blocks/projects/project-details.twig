@@ -15,7 +15,7 @@
             <p class="highlights">{{ project.highlights }}</p>
         </dd>
         <dt>Value</dt>
-        <dd>${{ project.value }}</dd>
+        <dd>{{ formattedValue }}</dd>
         <dt>Type of Work</dt>
         <dd>
             {% set category = project.category %}
