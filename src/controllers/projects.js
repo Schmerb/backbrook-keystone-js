@@ -32,11 +32,13 @@ exports.getCategoryProjects = (req, res) => {
             if(categoryType === 'all') {
                 return Project
                     .find()
+                    .sort({completed_date: -1})
                     .exec(); // return all projects
             }
             return Project
                 .find()
                 .where(`category.${categoryObj.categoryType}`, true)
+                .sort({completed_date: -1})
                 .exec();
         })
         .then(projects => {

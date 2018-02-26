@@ -29,7 +29,7 @@ Employee.add({
         type: Types.Number,
         initial: true,
         required: true,
-        note: 'Place in employee list, 0 is the first position.'
+        note: 'Place in employee list, 1 is the first position.'
     }
 });
 
