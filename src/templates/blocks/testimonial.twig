@@ -1,0 +1,20 @@
+<div class="testimonial">
+    <blockquote>
+        <div>
+            {% set paragraphs = testimonial.quote|split('\n') %}
+            {% set len = paragraphs|length %}
+            {% for paragraph in paragraphs %}
+                {{ paragraph }}
+            {% endfor %}
+        </div>
+        <footer>
+            <cite>
+                <span>{{ testimonial.name }}, {{ testimonial.position }}</span>
+                <span>{{ testimonial.company }}</span>
+            </cite>
+        </footer>
+    </blockquote>
+</div>
+
+
+

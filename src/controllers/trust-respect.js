@@ -7,6 +7,13 @@ exports = module.exports = (req, res) => {
 
     locals.section = 'trust-respect';
 
-
-    view.render('trust-respect');
+    let Testimonial = keystone.list('Testimonial').model;
+    Testimonial
+        .find()
+        .exec()
+        .then(testimonials => {
+            locals.testimonials = testimonials;
+            view.render('trust-respect');
+        })
+        .catch(err => res.status(500).json({message: 'Internal server error', err}));
 };

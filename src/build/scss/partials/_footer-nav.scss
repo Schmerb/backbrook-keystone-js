@@ -18,6 +18,9 @@
         justify-content: space-around;
         font-size: 1.4em;
         margin-top: 30px;
+        @include mediaMax(400px) {
+            padding-left: 20px;
+        }
         @include mediaMin($tablet) {
             flex-direction: row;
             font-size: 1.1em;

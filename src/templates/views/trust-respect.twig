@@ -1,4 +1,14 @@
 {% extends "../layouts/default.twig" %}
 
 {% block content %}
+    <section id="trust-respect" class="trust-respect-page">
+        <h2>Testimonials</h2>
+        <ul>
+            {% for testimonial in testimonials %}
+            <li>
+                {% include "../blocks/testimonial.twig", with { testimonial: testimonial } %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}
