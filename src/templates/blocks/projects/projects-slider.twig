@@ -1,5 +1,5 @@
 <div class="project-slider-wrap">
-    <h3 class="slider-title">More {{ currentProject.industry }} projects</h3>
+    <h3 class="slider-title">More {{ category == 'all' ? '': category|capitalize }} projects</h3>
     <!-- <div class="swipe-msg">Swipe to view</div> -->
     <svg class="icon icon-swipe-icon"><use xlink:href="#icon-swipe-icon"></use></svg>
     <div class="project-slider">
