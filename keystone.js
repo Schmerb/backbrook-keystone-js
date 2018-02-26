@@ -10,6 +10,7 @@ var Twig = require('twig');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+
 keystone.init({
 	'name': 'backbrook',
 	'brand': 'backbrook',
@@ -29,7 +30,7 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'N',
+	'user model': 'User',
 });
  
 // Load your project's Models
@@ -59,10 +60,14 @@ keystone.set('mailgun domain', 'example.com');
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', { 
-	galleries: 'galleries',
-	enquiries: 'enquiries',
-	ns: 'ns',
+	projects: 'projects',
+	employees: 'employees',
+	testimonials: 'testimonials',
+	resumes: 'resumes',
+	users: 'users',
 });
+
+
 
 // Start Keystone to connect to your database and initialise the web server
 
@@ -76,6 +81,7 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 	+ '\n\nCreate a mailgun account and add the credentials to the .env file to'
 	+ '\nset up your mailgun integration');
 }
+
 
 
 keystone.start();

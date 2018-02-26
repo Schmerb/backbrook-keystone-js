@@ -28,7 +28,6 @@ let routes = {
 	views: importRoutes('../controllers/'),
 };
 
-
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
