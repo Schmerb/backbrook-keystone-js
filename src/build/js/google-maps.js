@@ -20,7 +20,15 @@ exports.initMap = () => {
     let marker = new google.maps.Marker({
         position: uluru,
         map: map,
+        label: {
+            text:  "Backbrook Masonry Headquarters",
+            color: "#aa1019",
+            fontSize: "18px",
+            width: "10px"
+        },
         icon: {
+            labelOrigin: new google.maps.Point(20, 30),
+            color: "red",
             url: 'assets/images/compressed/five-bricks.png'
         }
     });
@@ -30,12 +38,20 @@ exports.initMap = () => {
         center = map.getCenter();
     });
     google.maps.event.addDomListener(window, 'resize', () => {
+        let x = window.innerWidth >= 600 ? 120 : 20;
         map.setCenter(center);
+        marker.setOptions({
+            icon: {
+                labelOrigin: new google.maps.Point(x, 30),
+                color: "red",
+                url: 'assets/images/compressed/five-bricks.png'
+            }
+        });
     });
 
     var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addDomListener(marker, 'click', () => {
-        infowindow.setContent('<div>YOOO</div>');
+    google.maps.event.addDomListener(marker, 'click', function () {
+        infowindow.setContent('<div>Backbrook Masonry Headquarters</div>');
         infowindow.open(map, this);
     });
 }
