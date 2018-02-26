@@ -1,0 +1,32 @@
+{% extends "../layouts/default.twig" %}
+
+{% block content %}
+    <section class="bim-model-page">
+        {% include '../blocks/bim-model.twig', with { model: model } %}
+    
+       <div class="model-slider">
+           <div class="model-slide">
+               <a href="/bim/example1">
+                   <div class="model-slide-inner" style="background-image: url('/assets/images/compressed/models/bim-masonry-specs.jpg')">
+    
+                   </div>
+               </a>
+           </div>
+           <div class="model-slide">
+               <a href="/bim/example2">
+                   <div class="model-slide-inner" style="background-image: url('/assets/images/compressed/models/brick-veneer.png')">
+    
+                   </div>
+               </a>
+           </div>
+           <div class="model-slide">
+               <a href="/bim/example3">
+                   <div class="model-slide-inner" style="background-image: url('/assets/images/compressed/models/concrete.png')">
+    
+                   </div>
+               </a>
+           </div>
+       </div>
+       
+    </section>
+{% endblock %}

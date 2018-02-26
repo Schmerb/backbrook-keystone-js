@@ -38,6 +38,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 
+	// ABOUT US
 	app.get('/about-us', 	  	       routes.views['about-us']);
 	app.get('/about-us/meet-our-team', routes.views['about-us'].getTeam);
 	app.get('/about-us/safety',        routes.views['about-us']);
@@ -46,14 +47,20 @@ exports = module.exports = function (app) {
 	app.get('/about-us/jesus-was-a-stone-mason', routes.views['about-us']);
 	app.get('/about-us/:employee',     routes.views['about-us']);
 
+	// BIM
 	app.get('/bim', routes.views.bim);
+	app.get('/bim/:model', routes.views.bim.getBIMExample);
 
+	// PROJECTS
 	app.get('/projects', routes.views.categories);
 	app.get('/projects/categories/:categoryType', routes.views.projects.getCategoryProjects);
 	app.get('/projects/:projectName', routes.views.projects.getProject);
 
+	// TESTIMONIALS
 	app.get('/trust-respect', routes.views['trust-respect']);
 
+
+	// CONTACT PAGE
 	app.get('/contact-us', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

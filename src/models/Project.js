@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+// const numeral = require('numeral');
 
 let Types = keystone.Field.Types;
 let Project = new keystone.List('Project');
@@ -56,5 +57,9 @@ Project.add({
 Project.schema.methods.getURL = function() {
     return `/projects/${this.name.replace(/ /g, '-')}`;
 }
+
+// Project.schema.methods.getValue = function() {
+//     return numeral(this.value).format();
+// }
 
 Project.register();

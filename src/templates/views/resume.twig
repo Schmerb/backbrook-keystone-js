@@ -1,0 +1,26 @@
+{% extends "../layouts/default.twig" %} 
+
+{% block content %}
+    <section class="resume-page">
+        <a href="/who-we-are">
+            <svg class="icon icon-back-btn-textured"><use xlink:href="#icon-back-btn-textured"></use></svg>
+        </a>
+        <div class="resume-container">
+            {% set description = employee.name + ', ' + employee.position %}
+            <div class="image-wrap">
+                <img src="{{ employee.image }}" alt="{{ description }}">
+            </div>
+            <div class="description-wrap">
+                <h2>{{ description  }}</h2>
+                <ul class="resume-list">
+                    {% for item in items %}
+                        <li>
+                            <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg>
+                            <p>{{ item }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}

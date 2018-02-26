@@ -67,15 +67,10 @@
 .project-categories-list {
     li {
         margin-right: 8px;
-        &.first {
+        &:not(:last-of-type) {
             &::after {
-                content: ' ~ ';
-            }
-        }
-        &.middle {
-            &::before,
-            &::after {
-                content: ' ~ ';
+                content: ' - ';
+                color: $brickred;
             }
         }
         a {
