@@ -17,6 +17,8 @@ exports.initMap = () => {
         center: uluru,
         styles: myMapStyles
       });
+
+    let x = window.innerWidth >= 600 ? 120 : 20;
     let marker = new google.maps.Marker({
         position: uluru,
         map: map,
@@ -27,7 +29,7 @@ exports.initMap = () => {
             width: "10px"
         },
         icon: {
-            labelOrigin: new google.maps.Point(20, 30),
+            labelOrigin: new google.maps.Point(x, 30),
             color: "red",
             url: 'assets/images/compressed/five-bricks.png'
         }

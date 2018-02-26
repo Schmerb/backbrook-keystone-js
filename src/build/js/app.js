@@ -82,10 +82,12 @@ function showResults(query) {
     const { projects } = state;
 
     let pathname = window.location.pathname;
-    let root = '/projects/categories/';
-    let category = pathname.slice(root.length);
-    if(category === 'all') {
-        // category = '';
+    let category;
+    if(pathname === '/projects') {
+        category = 'all';
+    } else {
+        let root = '/projects/categories/';
+        category = pathname.slice(root.length);
     }
     let results = findMatches(projects, 'name', query)
                   .map(result => {
@@ -103,16 +105,14 @@ function showResults(query) {
     if(len > 0) {
         // At least one match found
         $(SEARCH_RESULTS).html(results.join(''));
-        $(RESULTS_CONTAINER).height(`${len * 35}px`);
+        $(RESULTS_CONTAINER).css({height: `${len * 35 + 20}px`});
+        // $(RESULTS_CONTAINER).height(`${len * 45}px`);
         return;
     }
     // No matches, show no match message
-    $(RESULTS_CONTAINER).height('');
+    $(RESULTS_CONTAINER).css({height: ''});
     $(SEARCH_RESULTS).html('<p class="no-match-msg">Sorry, no matches found.</p>');
 }
-
-
-
 
 
 
