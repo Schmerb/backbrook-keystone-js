@@ -59,7 +59,7 @@ const initModelSlider = () => {
         nextArrow: '<svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>',
         prevArrow: '<svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>',
         infinite: false,
-        speed: 1200,
+        speed: 1000,
         variableWidth: true,
         centerMode: true,
         initialSlide: 1,

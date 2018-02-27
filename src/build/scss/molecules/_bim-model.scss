@@ -29,6 +29,20 @@
         height: inherit;
     }
 
+    // Slick DOTS
+    .slick-dots {
+        li {
+            button {
+                &::before {
+                    @extend %default-transition;
+                    color: $brickred;
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+
+    // Slick ARROWS
     .icon.slick-arrow {
         fill: black;
         width: 40px;
