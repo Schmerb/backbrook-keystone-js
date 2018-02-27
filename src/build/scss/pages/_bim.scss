@@ -11,7 +11,7 @@
     }
     // BANNER
     .bim-banner {
-        background-image: url('https://damassets.autodesk.net/content/dam/autodesk/www/solutions/bim/images/overview/overview-bimmanifesto-1920x1000.png');
+        background-image: url('/assets/images/compressed/models/bim-autodesk.png');
         background-position-x: 100%;
         background-position-y: 40%;
         background-size: cover;
@@ -52,13 +52,12 @@
             margin-top: 50px;
         }
         .bim-question {
-            // font-family: Roboto, 'sans-serif';
             font-size: 36px;
             text-align: center;
-            // margin-left: 10%;
         }
         blockquote {
-            // font-family: Roboto, 'sans-serif';
+            width: 93%;
+            margin: 16px auto;
             footer {
                 margin-top: 20px;
             }
@@ -73,7 +72,6 @@
         h2 {
             font-size: 32px;
             text-align: center;
-            // margin-left: 10%;
         }
     }
     // - - - - - - - - - -
@@ -111,7 +109,6 @@
             background-position: center;
             background-repeat: no-repeat;
             height: 250px;
-            // border-radius: 5px;
             &:hover, &:focus {
                 &::before {
                     background-color: rgba($brickred, 0.5);
