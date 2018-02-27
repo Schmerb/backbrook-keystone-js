@@ -110,7 +110,7 @@ function showResults(query) {
         return;
     }
     // No matches, show no match message
-    $(RESULTS_CONTAINER).css({height: ''});
+    $(RESULTS_CONTAINER).css({height: '100px'});
     $(SEARCH_RESULTS).html('<p class="no-match-msg">Sorry, no matches found.</p>');
 }
 

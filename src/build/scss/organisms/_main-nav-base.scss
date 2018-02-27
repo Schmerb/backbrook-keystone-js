@@ -97,18 +97,6 @@
                 }
             }
         }
-        &::after {
-            @extend %cover;
-            @extend %default-transition;
-            content: '';
-            position: fixed;
-            pointer-events: none;
-        }
-        &:hover {
-            &::after {
-                background-color: rgba(black, 0.3);
-            }
-        }
         .nav-header {
             font-size: 1.4em;
             font-weight: bold;
@@ -186,5 +174,25 @@
     }
 }
 
+// Background dark overlay on menu items/subitems hover
+// ** only on landing page above the fold **
+.landing {
+    &:not(.shrink) {
+        .menu-list {
+            &::after {
+                @extend %cover;
+                @extend %default-transition;
+                content: '';
+                position: fixed;
+                pointer-events: none;
+            }
+            &:hover {
+                &::after {
+                    background-color: rgba(black, 0.3);
+                }
+            }
+        }
+    }
+}
 
 
