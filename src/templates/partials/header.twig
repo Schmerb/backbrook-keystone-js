@@ -11,8 +11,9 @@
   </div>
 
   <div class="banner-backdrop"></div>
-
+  
   <nav class="main-nav {{ section != 'home' ? 'shrink':'' }}" role="navigation">
+    <div class="nav-menu-backdrop"></div>
     <ul class="menu-list list {{ section != 'home' ? 'shrink':'' }}">
         {% for link in navLinks %} 
             {% set linkClass = '' %} 

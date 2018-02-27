@@ -256,7 +256,7 @@ function checkForTouch() {
 function burgerClick() {
     $('.burger-btn').on('click', function(e) {
         e.preventDefault();
-        let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}, ${MENU_LIST}`;
+        let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}, ${MENU_LIST}, .nav-menu-backdrop`;
         $(burger).toggleClass('open');
         if($('html').hasClass('no-scroll')) {
             $('html, body').removeClass('no-scroll');

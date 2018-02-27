@@ -151,10 +151,10 @@
     animation-iteration-count: infinite;
 }
 
-@mixin custom-scrollbars($track: #eee, $slider: $brickred) {
+@mixin custom-scrollbars($track: #eee, $slider: $brickred, $width: 11px) {
     &::-webkit-scrollbar { // background of bar itself
         background-color: $track;
-        width: 11px;
+        width: $width;
     }
     &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
         background-color: $slider;
