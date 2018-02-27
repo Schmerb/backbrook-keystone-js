@@ -9,6 +9,7 @@
     font-size: 16px;
     padding-top: 30px;
     padding-bottom: 20px;
+    // border: 1px solid black;
     @include mediaMin(700px) {
         font-size: 18px;
     }

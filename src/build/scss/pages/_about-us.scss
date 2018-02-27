@@ -10,6 +10,7 @@
     margin: 0 auto;
     padding-bottom: 20px;
     .container {
+        border: 1px solid transparent; // needed for sticky aside nav to work properly
         @include mediaMin($desktop) {
             margin-top: 50px;
         }
