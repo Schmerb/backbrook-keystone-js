@@ -1,9 +1,9 @@
 {% extends "../layouts/default.twig" %} 
 
 {% block content %}
-    <section id="who-we-are" class="who-we-are-page">
+    <section id="about-us" class="about-us-page">
         <div class="container">
-            <div class="about-nav-container">
+            <div class="about-nav-container {{ section == '/about-us/meet-our-team' ? 'aside-fix' : '' }}">
                 <nav class="sub-nav">
                     <ul>
                         {% set links = navLinks[1].pages %}

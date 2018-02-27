@@ -3,6 +3,7 @@
 const state = {
     isMobile: false,
     hasTouch: false,
+    scrollTop: null,
     projects: []
 };
 
@@ -173,8 +174,38 @@ function checkScrollPos() {
             fixBanner();
         } else if(path.includes('/projects/')) {
             highlightProjectCard();
+        } else if (path === '/about-us/meet-our-team') {
+            // stick aside nav to bottom of container when bottom
+            // of el reaches bottom of container
+            stickyAsideNav();
         }
     });
+}
+
+function stickyAsideNav() {
+    // 1) get distance from bottom of container to top of window
+    // 2) get distance from bottom of aside nav to top of window
+    // 3) When the difference between these two hits a value, sticky fix aside nav
+    let $container = $('.about-us-page').find('.container'),
+        $asideNav  = $('.about-nav-container'),
+        scrollTop  = $(window).scrollTop();
+
+    let bottomContainerToTopWin = $container.offset().top + $container.outerHeight() - scrollTop,
+        bottomAsideNavToTopWin  = $asideNav.offset().top + $asideNav.outerHeight() - scrollTop;
+
+    if(bottomContainerToTopWin <= bottomAsideNavToTopWin) {
+        if(!$asideNav.hasClass('aside-stick-to-bottom')) {
+            $asideNav.addClass('aside-stick-to-bottom');
+            // grab scrollTop at this point and save it
+            state.scrollTop = scrollTop;
+        }
+    } else if($asideNav.hasClass('aside-stick-to-bottom') && state.scrollTop) {
+        if(scrollTop <= state.scrollTop) {
+            // when scrollTop is less than saved scrollTop remove class
+            $asideNav.removeClass('aside-stick-to-bottom');
+            state.scrollTop = null; // reset state for next scroll event
+        }
+    }
 }
 
 

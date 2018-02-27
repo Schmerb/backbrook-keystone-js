@@ -34,6 +34,18 @@
             top: 0;
         }
     }
+    &.aside-fix {
+        @include mediaMin(1240px) {
+            position: fixed;
+        }
+    }
+    &.aside-stick-to-bottom {
+        @include mediaMin(1240px) {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
 }
 
 // - - - - - - - - - - - - -

@@ -4,7 +4,7 @@
 //
 // // // // // // // // // //
 
-.who-we-are-page {
+.about-us-page {
 
     .employees-container {
         @extend %default-transition;
@@ -13,6 +13,9 @@
         &.text-container {
             padding: 0;
             max-width: 9999px;
+            @include mediaMin(1240px) {
+                margin-left: 300px; // Needed to avoid collision with fixed aside nav
+            }
             p {
                 font-family: 'Cutive Mono', monospace;
                 text-align: left; // override who-we-are p-tags justified text
