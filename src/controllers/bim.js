@@ -7,8 +7,15 @@ exports = module.exports = (req, res) => {
 
     locals.section = 'bim';
 
-
-    view.render('bim');
+    let BimModel = keystone.list('BimModel').model;
+    BimModel 
+        .find()
+        .exec()
+        .then(models => {
+            locals.models = models;
+            view.render('bim');
+        })
+        .catch(err => res.status(500).json({message: 'Internal server error', err}));
 };
 
 exports.getBIMExample = (req, res) => {
@@ -20,5 +27,13 @@ exports.getBIMExample = (req, res) => {
     locals.section = 'bim';
     locals.model = model;
 
-    view.render('model');
+    let BimModel = keystone.list('BimModel').model;
+    BimModel 
+        .find()
+        .exec()
+        .then(models => {
+            locals.models = models;
+            view.render('model');
+        })
+        .catch(err => res.status(500).json({message: 'Internal server error', err}));
 }

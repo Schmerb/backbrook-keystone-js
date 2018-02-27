@@ -1,0 +1,14 @@
+<div class="bim-examples-container">
+	<h3>Check out some examples:</h3>
+	<ul>
+		{% for model in models %}
+			<li>
+				<a href="/BIM/example{{ loop.index }}">
+					<div class="example-card" style="background-image: url('/assets/images/compressed/models/{{ model.image }}')">
+						
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
