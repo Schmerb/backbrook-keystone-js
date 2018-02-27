@@ -15,23 +15,27 @@
     display: -ms-flexbox;  /* TWEENER - IE 10 */
     display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-  }
-  
-  @mixin flex($values) {
+}
+
+@mixin flex($values) {
     -webkit-box-flex: $values;
        -moz-box-flex:  $values;
         -webkit-flex:  $values;
             -ms-flex:  $values;
                 flex:  $values;
-  }
-  
-  @mixin order($val) {
+}
+
+@mixin order($val) {
     -webkit-box-ordinal-group: $val;  
-       -moz-box-ordinal-group: $val;     
-               -ms-flex-order: $val;     
-                -webkit-order: $val;  
-                        order: $val;
-  }
+        -moz-box-ordinal-group: $val;     
+                -ms-flex-order: $val;     
+                 -webkit-order: $val;  
+                         order: $val;
+}
+
+@mixin default-transition {
+    @include transition(0.3s, all, ease-in-out);
+}
 
 @mixin transition($time: 0.3s, $what: all, $type: ease-in-out, $delay: 0s) {
     -webkit-transition: $what $time $type $delay;
@@ -179,7 +183,7 @@
 }
 
 %default-transition {
-    @include transition(0.3s, all, ease-in-out);
+    @include default-transition;
 }
 
 %cover {

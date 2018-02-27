@@ -91,6 +91,10 @@
             align-items: center;
             @include mediaMin($tablet) {
                 flex-direction: row;
+                flex-wrap: wrap;
+            }
+            @include mediaMin($desktop) {
+                flex-wrap: nowrap;
             }
             li {
                 width: 96%;
