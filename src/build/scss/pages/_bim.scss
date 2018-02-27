@@ -52,7 +52,6 @@
             margin-top: 50px;
         }
         .bim-question {
-            font-size: 36px;
             text-align: center;
         }
         blockquote {
@@ -72,6 +71,12 @@
         h2 {
             font-size: 32px;
             text-align: center;
+            @include mediaMin($tablet) {
+                font-size: 42px;
+            }
+            @include mediaMin($desktop) {
+                font-size: 56px;
+            }
         }
     }
     // - - - - - - - - - -

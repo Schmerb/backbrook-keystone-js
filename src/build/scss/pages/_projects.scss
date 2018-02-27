@@ -8,12 +8,11 @@
     min-height: 100vh;
     padding-bottom: 50px;
     .projects-header {
-        font-size: 46px;
         text-align: center;
         margin-top: 40px;
         padding: 20px 0;
-        @include mediaMin($tablet) {
-            font-size: 64px;
+        @include mediaMin($desktop) {
+            font-size: 66px;
         }
     }
 }

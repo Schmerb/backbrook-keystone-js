@@ -177,9 +177,6 @@ function checkScrollPos() {
             highlightTargetInList('.project-card-anchor', '.project-list li');
         } else if(path == '/about-us/meet-our-team') {
             highlightTargetInList('.employee-card', '.employees li', 700);
-        } else if (path === '/about-us/meet-our-team') {
-            // stick aside nav to bottom of container when bottom
-            // of el reaches bottom of container
             stickyAsideNav();
         }
     });

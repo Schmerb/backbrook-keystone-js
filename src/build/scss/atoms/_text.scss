@@ -21,3 +21,15 @@ blockquote {
 abbr[title] {
     text-decoration: none;
 }
+
+.header-text {
+    font-size: 36px;
+    @include mediaMin($tablet) {
+        font-size: 46px;
+    }
+    @include mediaMin($desktop) {
+        font-size: 56px;
+    }
+}
+#main {
+}
