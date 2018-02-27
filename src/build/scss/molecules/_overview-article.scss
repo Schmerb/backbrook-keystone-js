@@ -50,8 +50,8 @@
             float: left;
         }
     }
-    // row HOVER styling
-    &:hover {
+    // row HOVER styling and ACTIVE class styling (used for small devices who lack a mouse)
+    &:hover, &.active {
         .image-wrap {
             .overview-img {
                 -webkit-filter: none;

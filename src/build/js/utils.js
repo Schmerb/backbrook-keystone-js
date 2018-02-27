@@ -120,7 +120,6 @@ function findMatches(arr, compareStr, target) {
         let added = false;
         let current = obj[compareStr].toLowerCase().trim();
         if(current.startsWith(target)) {
-            console.log('current: ', current, " starts with ", target);
             results.push(obj);
             added = true;
         }
@@ -143,18 +142,21 @@ function findMatches(arr, compareStr, target) {
     return results;
 }
 
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// For small viewports, project card in middle of screen
-// gets active/hover styles applied
+// For small viewports, element in middle of screen gets
+// a class, ".active" applied to it. Target is element
+// to apply class to and listEl is the parent element
+// that can be iterated through to access each target
+// if no listEl, target is the iterable list element
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function highlightProjectCard() {
-    if(window.innerWidth >= 600) {
-        $('.project-card-anchor').removeClass('active');
+function highlightTargetInList(target, listEl = null, breakpoint = 737) {
+    if(window.innerWidth >= breakpoint) {
+        $(target).removeClass('active');
         return;
     }
-    $('.project-list li').each((i, el) => {
-        let elTop = $(el).offset().top,
+    let elements = listEl ? listEl : target;
+    $(elements).each((i, el) => {
+        let elTop    = $(el).offset().top,
             elBottom = elTop + $(el).outerHeight(),
             elMiddle = (elTop + elBottom) / 2;
 
@@ -165,13 +167,12 @@ function highlightProjectCard() {
         let upperBound = winMiddle - $(el).height() / 2, // upperBound is lower in px value
             lowerBound = winMiddle + $(el).height() / 2; // lowerBound is higher in px value
 
-
         if(elMiddle > upperBound && elMiddle < lowerBound) {
-            $('.project-card-anchor').removeClass('active');
-            $(el).find('.project-card-anchor').addClass('active');
+            $(target).removeClass('active');
+            $(el).find(target).addClass('active');
             $(el).addClass('active');
         } else {
-            $(el).find('.project-card-anchor').removeClass('active');
+            $(el).find(target).removeClass('active');
             $(el).removeClass('active');
         }
     });
@@ -210,6 +211,6 @@ module.exports = {
     setBgImgHeight,
     fadeOutLoadScreen,
     findMatches,
-    highlightProjectCard,
+    highlightTargetInList,
     getScrollbarWidth
 };

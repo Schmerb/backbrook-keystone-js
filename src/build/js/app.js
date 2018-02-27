@@ -148,7 +148,7 @@ const {
     toggleHeaderBgImg,
     setBgImgHeight,
     fadeOutLoadScreen,
-    highlightProjectCard
+    highlightTargetInList
 } = require('./utils');
 
 
@@ -172,8 +172,11 @@ function checkScrollPos() {
         if(path === '/') {
             toggleHeaderBgImg();
             fixBanner();
+            highlightTargetInList('.overview article');
         } else if(path.includes('/projects/')) {
-            highlightProjectCard();
+            highlightTargetInList('.project-card-anchor', '.project-list li');
+        } else if(path == '/about-us/meet-our-team') {
+            highlightTargetInList('.employee-card', '.employees li', 700);
         } else if (path === '/about-us/meet-our-team') {
             // stick aside nav to bottom of container when bottom
             // of el reaches bottom of container
@@ -270,6 +273,14 @@ function burgerClick() {
     });
 }
 
+function mainFeaturedProjClick() {
+    $('.main-featured-img').on('click', function(e) {
+        e.preventDefault();
+        let href = this.dataset['href'];
+        location.href = href;
+    });
+}
+
 // - - - - - - - - - - - - -
 // Project Category Menu
 // - - - - - - - - - - - - -
@@ -327,6 +338,10 @@ function backBtnClick() {
 
 function navClicks() {
     burgerClick();
+}
+
+function landingClicks() {
+    mainFeaturedProjClick();
 }
 
 function categoryForm() {
@@ -393,6 +408,7 @@ if($('#projects').length !== 0) {
 $(function () {
     utils();
     navClicks();
+    landingClicks();
     categoryForm();
     projectDetailEvents();
     init();
