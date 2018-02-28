@@ -7,36 +7,65 @@
 .contact-us-page {
     position: relative;
     height: 100%;
-    min-height: 95vh;
+    min-height: 90vh;
     max-height: 1600px;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 400px;
+    @include mediaMin($desktop + 250) {
+        min-height: 80vh;
+        padding-bottom: 300px;
+    }
     .headers {
         margin-top: 40px;
         margin-bottom: 40px;
+        @include mediaMin($desktop) {
+            margin-top: 60px;
+        }
     }
     h2 {
         margin-bottom: 15px;
+        font-size: 32px;
+        @include mediaMin($tablet) {   
+            font-size: 46px;
+        }
     }
     h2, h3 {
         text-align: center;
     }
 }
-
+// Form + Map WRAP
+.form-map-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    @include mediaMin($desktop + 250) {
+        position: relative;
+        padding: 0 10px;
+        margin-top: 100px;
+    }
+}
+// Form + Address WRAP
 .contact-outer-container {
     position: relative;
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
-}
-
-.office-address-container {
-    margin: 40px 0;
-    font-size: 22px;
     @include mediaMin($desktop) {
-        position: absolute;
-        min-width: 200px;
-        top: 0;
-        left: 20px;
+        margin-top: 50px;
+    }
+    @include mediaMin($desktop + 250) {
+        position: static;
+        float: left;
+        margin: 0;
+        margin-left: 50px;
+    }
+}
+// Adress
+.office-address-container {
+    width: 600px;
+    margin: 40px auto;
+    font-size: 22px;
+    @include mediaMin($desktop + 250) {
+        @include center;
+        top: auto;
     }
     .office-info-wrap {
         align-items: center;
@@ -49,9 +78,25 @@
             fill: $brickred;
         }
         address {
+            width: 100%;
+            margin-top: 30px;
             > span {
                 height: 1.8em;
                 line-height: 1.8em;
+            }
+        }
+        .address {
+            float: left;
+            > span {
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+        }
+        .numbers {
+            float: right;
+            > span {
+                display: inline-block;
+                margin-bottom: 20px;
             }
         }
     }
