@@ -378,7 +378,7 @@ function init() {
         initMap();
     }
     fadeOutLoadScreen();
-    startSlideShow(4000); // starts bg image slideshow
+    startSlideShow('.header-slide', 4000); // starts bg image slideshow
     getAllProjects();
 }
 
@@ -389,9 +389,11 @@ function init() {
 const { 
     displayProjectSlider, 
     displayModelSlider, 
+    displayLauraSlider,
     responsiveReslick 
 } = require('./slick-init');
 
+const { pathname } = location;
 // Init slick slider if on correct
 if($('#projects').length !== 0) {
     displayProjectSlider();
@@ -399,6 +401,9 @@ if($('#projects').length !== 0) {
 } else if ($('.bim-model-page').length !== 0) {
     displayModelSlider();
     responsiveReslick();
+} 
+if(pathname === '/BIM') {
+    startSlideShow('.laura-slide', 4000); // starts bg image slideshow
 }
 
 // on Load

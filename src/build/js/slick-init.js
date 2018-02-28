@@ -5,6 +5,7 @@
 // SELECTOR CONSTANTS
 const PROJECT_SLIDER = '.project-slider';
 const MODEL_SLIDER   = '.model-slider';
+const LAURA_SLIDER   = '.laura-slider';
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 // Project Page Slider
@@ -86,6 +87,20 @@ const initModelSlider = () => {
     }
 }
 
+const initLauraSlider = () => {
+    $(LAURA_SLIDER).slick({
+        dots: false,
+        arrows: false,
+        speed: 1000,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        variableWidth: true,
+        // fade: true,
+        slidesToShow: 1,
+        infinite: false
+    });
+}
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 // Intializes slider and sets height to zero
@@ -101,6 +116,11 @@ const displayModelSlider = () => {
     $(MODEL_SLIDER).css('height', '0px');
     initModelSlider();
     $(MODEL_SLIDER).css('height', '');
+}
+const displayLauraSlider = () => {
+    $(LAURA_SLIDER).css('height', '0px');
+    initLauraSlider();
+    $(LAURA_SLIDER).css('height', '');
 }
 
 
@@ -130,6 +150,9 @@ const responsiveReslick = () => {
         if (!$(MODEL_SLIDER).hasClass('slick-initialized')) {
             initModelSlider();
         } 
+        if (!$(LAURA_SLIDER).hasClass('slick-initialized')) {
+            initLauraSlider();
+        } 
         if(window.innerWidth < 737) {
             $('.model-slide').css({'width': 'calc(100vw - ' + scrollBarWidth + 'px)'});
         }
@@ -139,10 +162,9 @@ const responsiveReslick = () => {
 
 
 module.exports = {
-    initProjectSlider, 
-    initModelSlider,
     displayProjectSlider, 
     displayModelSlider, 
+    displayLauraSlider,
     unslick, 
     responsiveReslick 
 };

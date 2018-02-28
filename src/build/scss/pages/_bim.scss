@@ -41,7 +41,7 @@
     }
     // Holds main text of page
     .bim-container {
-        max-width: 1000px;
+        max-width: 1100px;
         margin: 40px auto;
     }
     // - - - - - - - - - -
@@ -53,6 +53,7 @@
         }
         .bim-question {
             text-align: center;
+            margin-bottom: 40px;
         }
         blockquote {
             width: 93%;
@@ -68,9 +69,11 @@
     .how-we-work-wrap {
         width: 93%;
         margin: 50px auto;
+        overflow: auto;
         h2 {
             font-size: 32px;
             text-align: center;
+            margin-bottom: 40px;
             @include mediaMin($tablet) {
                 font-size: 42px;
             }
@@ -78,11 +81,19 @@
                 font-size: 56px;
             }
         }
+        p {
+            overflow: hidden;
+            padding-right: 20px;
+            &:nth-of-type(2) {
+                margin-top: 50px;
+            }
+        }
     }
     // - - - - - - - - - -
     // Examples container
     // - - - - - - - - - -
     .bim-examples-container {
+        clear: both;
         h3 {
             padding-top: 30px;
             padding-bottom: 30px;

@@ -1,23 +1,22 @@
 'use strict';
 
-const SLIDESHOW = '.slideshow';
-const SLIDE = '.slide';
 
-function nextSlide() {
+
+function nextSlide(slideClass) {
     // get current slide number
     // increment
     // set current to new slide number
-    let $current  = $('.slide.current');
+    let $current  = $(`${slideClass}.current`);
     let slideNum  = parseInt($current.attr('data-slide-num'));
-    let nextSlide = slideNum < $('.slide').length ? slideNum + 1 : 1;
+    let nextSlide = slideNum < $(slideClass).length ? slideNum + 1 : 1;
 
     $current.removeClass('current');
-    $(`.slide[data-slide-num="${nextSlide}"]`).addClass('current');
+    $(`${slideClass}[data-slide-num="${nextSlide}"]`).addClass('current');
 }
 
-function startSlideShow(delay = 6000) {
+function startSlideShow(slideClass, delay = 6000) {
     setInterval(() => {
-        nextSlide();
+        nextSlide(slideClass);
     }, delay);
 }
 

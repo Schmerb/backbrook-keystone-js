@@ -1,11 +1,7 @@
-<div class="slideshow">
-    <div class="slide slide-1 current" data-slide-num="1"></div>
-    <div class="slide slide-2" data-slide-num="2"></div>
-    <div class="slide slide-3" data-slide-num="3"></div>
-    <div class="slide slide-4" data-slide-num="4"></div>
-    <div class="slide slide-5" data-slide-num="5"></div>
-    <div class="slide slide-6" data-slide-num="6"></div>
-    <div class="slide slide-7" data-slide-num="7"></div>
-    <div class="slide slide-8" data-slide-num="8"></div>
-    <div class="slide slide-9" data-slide-num="9"></div>
+<div class="slideshow header-slideshow">
+    {% for image in officeImages %}
+        <div class="header-slide header-slide-{{ loop.index }} current" data-slide-num="{{ loop.index }}"
+             style="background-image: url('/assets/images/compressed/office/{{ image }}');">
+        </div>
+    {% endfor %}
 </div>

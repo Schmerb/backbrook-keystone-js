@@ -1,5 +1,9 @@
 <div class="laura-gallery">
-    <div>
-        
+    <div class="laura-slider slideshow">
+        {% for i in 1..5 %}
+            <div class="laura-slide laura-slide-{{ i }} {{ i == 1 ? 'current' : '' }}" data-slide-num="{{ i }}" 
+                 style="background-image: url('/assets/images/compressed/staff/laura-{{ i }}.jpg')">
+            </div>
+        {% endfor %}
     </div>
-</div>
+</div> 
