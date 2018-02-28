@@ -1,0 +1,41 @@
+// // // // // // // // // //
+//
+//   Project Details
+//
+// // // // // // // // // //
+
+// Proj Details
+.details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 5px 20px;
+    overflow: auto;
+    @include mediaMin($tablet) {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+    @include mediaMin($desktop + 200) {
+        max-width: 1000px;
+    }
+    dl {
+        padding: 0 15px;
+        margin: 0;
+        dt {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        dd {
+            font-weight: lighter;
+            margin: 0;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+    }
+    @include mediaMin($tablet) {
+        dl {
+            width: 50%;
+            float: left;
+        }
+    }
+}

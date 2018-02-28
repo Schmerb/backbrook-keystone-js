@@ -61,20 +61,16 @@ exports.getCategoryProjects = (req, res) => {
 exports.getProject = (req, res) => {
     let view   = new keystone.View(req, res);
     let locals = res.locals;
-
-    locals.section = 'projects';
-
+    
     let { projectName } = req.params;
     let { category } = req.query;
-
+    
+    locals.section = 'projects';
     locals.category = category;
 
-    let name = projectName;
-    if(name !== 'Alcatel-Lucent' 
-    && name !== 'Dwight-Englewood-School-STEM-Building'
-    && name !== 'Merck-12') {
-        projectName = projectName.replace(/-/g, ' ');
-    }
+    projectName = getCorrectProjectName(projectName);
+
+    console.log({projectName});
 
     let Project = keystone.list('Project').model;
     let currentProject;
@@ -132,6 +128,19 @@ function getPrevNextProjects(projects, currentProject, category) {
     prevProj = prevProj.getURL() + '?category=' + category  // link to previous project page
 
     return { nextProj, prevProj };
+}
+
+function getCorrectProjectName(name) {
+    if (name === 'Dwight-Englewood-School-STEM-Building') {
+        return 'Dwight-Englewood School STEM Building';
+    }
+    if(name !== 'Alcatel-Lucent' 
+    && name !== 'Merck-12') {
+        name = name.replace(/-/g, ' ');
+        name = name.replace(/=/g, '#');
+    }
+
+    return name;
 }
 
 

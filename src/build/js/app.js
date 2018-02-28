@@ -92,9 +92,11 @@ function showResults(query) {
     }
     let results = findMatches(projects, 'name', query)
                   .map(result => {
+                    let name = result.name.replace(/#/g, '=');
+                    name = name.replace(/ /g, '-');
                     return `
                         <li>
-                            <a href="/projects/${result.name.replace(/ /g, '-')}?category=${category}">${result.name}</a>
+                            <a href="/projects/${name}?category=${category}">${result.name}</a>
                         </li>
                     `;
                 });

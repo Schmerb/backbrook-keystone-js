@@ -14,7 +14,7 @@
         </li>
         {% if location == 'project' %}
             <li>
-                <a href="/projects/{{ project.name|replace({' ': '-'}) }}?category={{ category.categoryType }}">
+                <a href="/projects/{{ project.name|replace({'#':'=', ' ': '-'}) }}?category={{ category.categoryType }}">
                     {{ project.name }}
                 </a>
             </li>

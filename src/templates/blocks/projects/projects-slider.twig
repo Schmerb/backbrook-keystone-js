@@ -5,7 +5,7 @@
     <div class="project-slider">
         {% for project in project_list  %} 
             <div class="project-slide" style="background-image: url('{{ project.image.url }}');">
-                <a class="slide-inner-wrap" href="/projects/{{ project.name|replace({' ': '-'}) }}?category={{ category }}">
+                <a class="slide-inner-wrap" href="/projects/{{ project.name|replace({'#':'=', ' ': '-'}) }}?category={{ category }}">
                     <div>
                         <h2>{{ project.name }}</h2>
                     </div>

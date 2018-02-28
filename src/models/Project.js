@@ -56,7 +56,9 @@ Project.add({
 
 // return correct url format for project
 Project.schema.methods.getURL = function() {
-    return `/projects/${this.name.replace(/ /g, '-')}`;
+    let name = this.name.replace(/ /g, '-');
+    name = name.replace(/#/g, '=');
+    return `/projects/${name}`;
 }
 
 Project.schema.methods.getValue = function() {
