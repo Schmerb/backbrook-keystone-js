@@ -408,6 +408,11 @@ if(pathname === '/BIM') {
     startSlideShow('.laura-slide', 4000); // starts bg image slideshow
 }
 
+// window.onbeforeunload = function () {
+//     window.scrollTo(0, 0);
+//   }
+
+
 // on Load
 $(function () {
     utils();
