@@ -6,24 +6,17 @@
 
 
 .main-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    float: left;
     width: 100%;
-    height: calc(1950px + 5vw);
     padding-bottom: 50px;
-    @include mediaMin($tablet) {
-        height: 1300px;
-    }
-    @include mediaMin($desktop) {
-        height: 1080px;
-    }
-    @include mediaMin(1400px) {
-        height: 1150px;
-    }
     .f-top-wrap {
         background-color: #555;
         padding: 30px 0;
+    }
+    .f-bottom-wrap {
+        @include mediaMin($desktop) {
+            border-bottom: 3px solid $brickred;
+        }
     }
     
 }
@@ -39,6 +32,5 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
-    // border-top: 1px solid blue;
 }
 

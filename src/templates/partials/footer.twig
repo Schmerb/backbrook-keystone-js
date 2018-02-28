@@ -1,43 +1,47 @@
 <div class="f-top-wrap">
-    <!-- footer nav -->
-    <nav class="f-nav">
-        <ul>
-            {% for link in navLinks %}
-                {% set linkClass = '' %}
-                {% if link.key == section %}
-                    {% set linkClass = 'active' %}
-                {% endif %}
-                {% if link.key != 'contact' %}
-                    <li class="f-nav-col {{ linkClass | striptags }}">
-                        <a href="{{ link.href }}">{{ link.label }}</a>
-                        <ul class="sub-menu-list">
-                            {% for sublink in link.pages %}
-                                <li>
-                                    <a href={{ sublink.href }}>{{ sublink.label }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </nav>
-
-</div>
-<!-- logo/icon -->
-<div class="f-icon-wrap">
-    <div class="inner-wrap">
-        <!-- <svg class="icon icon-trowel-solid"><use xlink:href="#icon-trowel-solid"></use></svg> -->
-        <svg class="icon icon-five-bricks"><use xlink:href="#icon-five-bricks"></use></svg>
+    <div class="max-content">
+        <!-- footer nav -->
+        <nav class="f-nav">
+            <ul>
+                {% for link in navLinks %}
+                    {% set linkClass = '' %}
+                    {% if link.key == section %}
+                        {% set linkClass = 'active' %}
+                    {% endif %}
+                    {% if link.key != 'contact' %}
+                        <li class="f-nav-col {{ linkClass | striptags }}">
+                            <a href="{{ link.href }}">{{ link.label }}</a>
+                            <ul class="sub-menu-list">
+                                {% for sublink in link.pages %}
+                                    <li>
+                                        <a href={{ sublink.href }}>{{ sublink.label }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
     </div>
 </div>
-    
+
 <div class="f-bottom-wrap">
-    <!-- contact INFO -->
-    {% include '../blocks/contact-info.twig' %}
-    <!-- copyright -->
-    <div class="copy">
-        <span>copyright &copy 2018 | Back Brook Masonry</span>
+    <div class="f-max-content">
+        <!-- logo/icon -->
+        <div class="f-icon-wrap">
+            <div class="inner-wrap">
+                <!-- <svg class="icon icon-trowel-solid"><use xlink:href="#icon-trowel-solid"></use></svg> -->
+                <svg class="icon icon-five-bricks"><use xlink:href="#icon-five-bricks"></use></svg>
+            </div>
+        </div>
+        
+        <!-- contact INFO -->
+        {% include '../blocks/contact-info.twig' %}
+        <!-- copyright -->
+        <div class="copy">
+            <span>copyright &copy 2018 | Back Brook Masonry</span>
+        </div>
     </div>
 </div>
 

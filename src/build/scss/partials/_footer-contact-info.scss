@@ -23,21 +23,16 @@
 // // // // // //
 .admin-info {
     @include mediaMin($tablet) {
-        font-size: calc(1em + 0.3vw);
-    }
-    @include mediaMax($desktop - 1) {
-        border-top: 3px solid $brickred;
+        font-size: 1em;
     }
     @include mediaMin($desktop) {
         @include flexbox;
         justify-content: center;
         align-items: center;
-        font-size: calc(1em + 0.1vw);
         width: 70%;
-        border-bottom: 3px solid $brickred;
     }
     @include mediaMin(1400px) {
-        font-size: 22px;
+        font-size: 18px;
     }
     ul {
         @extend %flexbox;
@@ -105,8 +100,8 @@
         width: calc(55px + 4vw);
         height: calc(55px + 4vw);
         @include mediaMin($desktop) {
-            width: calc(5px + 5vw);
-            height: calc(5px + 5vw);
+            width: 50px;;
+            height: 50px;;
         }
     }
 }
