@@ -23,7 +23,7 @@ exports.initMap = () => {
         position: uluru,
         map: map,
         labelContent: "Backbrook Masonry Headquarters",
-        labelAnchor: new google.maps.Point(-30, 10),
+        labelAnchor: new google.maps.Point(-40, 10),
         labelClass: "google-maps-bbm-marker", // your desired CSS class
         labelInBackground: true,
         icon: {
@@ -46,7 +46,13 @@ exports.initMap = () => {
 
     var infowindow = new google.maps.InfoWindow();
     google.maps.event.addDomListener(marker, 'click', function () {
-        infowindow.setContent('<div>Backbrook Masonry Headquarters</div>');
+        infowindow.setContent(`<div>
+                                    <ul>
+                                        <li>311 6th Avenue</li>
+                                        <br>
+                                        <li>Alpha, NJ 08865</li>
+                                    </ul>
+                                </div>`);
         infowindow.open(map, this);
     });
 }

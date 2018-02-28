@@ -21,3 +21,37 @@
         text-align: center;
     }
 }
+
+.contact-outer-container {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.office-address-container {
+    margin: 40px 0;
+    font-size: 22px;
+    @include mediaMin($desktop) {
+        position: absolute;
+        min-width: 200px;
+        top: 0;
+        left: 20px;
+    }
+    .office-info-wrap {
+        align-items: center;
+        justify-content: space-around;
+        h3 {
+            color: $brickred;
+            font-size: 28px;
+        }
+        svg {
+            fill: $brickred;
+        }
+        address {
+            > span {
+                height: 1.8em;
+                line-height: 1.8em;
+            }
+        }
+    }
+}

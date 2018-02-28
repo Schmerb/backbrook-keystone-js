@@ -109,15 +109,15 @@
             height: calc(5px + 5vw);
         }
     }
-    .office-info-wrap {
-        @extend %flexbox;
-        flex-direction: column;
-        justify-content: center;
-        height: inherit;
-        address {
-            .icon-phone, .icon-fax {
-                vertical-align: middle;
-            }
+}
+.office-info-wrap {
+    @extend %flexbox;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    address {
+        .icon-phone, .icon-fax {
+            vertical-align: middle;
         }
     }
 }

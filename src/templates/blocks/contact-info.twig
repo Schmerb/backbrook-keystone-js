@@ -35,21 +35,7 @@
                 <svg class="icon icon-location-marker"><use xlink:href="#icon-location-marker"></use></svg>
             </div>
             <div>
-                <div class="office-info-wrap">
-                    <h3>Office</h3>
-                    <address translate="no">
-                        <span>311 6th Avenue</span><br>
-                        <span>Alpha, <abbr title="New Jersey">NJ</abbr> 08865</span><br>
-                        <span class="phone">
-                            <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
-                            <span>908-777-5281</span>
-                        </span><br>
-                        <span class="fax">
-                            <svg class="icon icon-fax"><use xlink:href="#icon-fax"></use></svg>
-                            <span>908-777-5283</span>
-                        </span>
-                    </address>
-                </div>
+                {% include "./office-address.twig" %}
             </div>
         </div> <!-- bbm info/address -->
     
